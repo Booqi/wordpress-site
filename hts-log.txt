@@ -1,0 +1,19 @@
+HTTrack3.49-2 launched on Tue, 17 Mar 2026 09:33:49 at https://booqi.me
+(httrack https://booqi.me -O ./downloaded-site-booqi )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+09:35:53	Warning: 	Moved Permanently for https://booqi.me/nl/
+09:35:53	Warning: 	File has moved from https://booqi.me/nl/ to https://booqi.me/nl
+09:35:53	Warning: 	Moved Permanently for https://booqi.me/fr/
+09:35:53	Warning: 	File has moved from https://booqi.me/fr/ to https://booqi.me/fr
+09:35:53	Warning: 	Moved Permanently for https://booqi.me/de/
+09:35:53	Warning: 	File has moved from https://booqi.me/de/ to https://booqi.me/de
+09:35:53	Warning: 	Moved Permanently for https://booqi.me/es/
+09:35:53	Warning: 	File has moved from https://booqi.me/es/ to https://booqi.me/es
+
+HTTrack Website Copier/3.49-2 mirror complete in 2 minutes 4 seconds : 100 links scanned, 95 files written (31200036 bytes overall) [4043515 bytes received at 32608 bytes/sec], 31200113 bytes transferred using HTTP compression in 96 files, ratio 12%, 14.2 requests per connection
+(No errors, 8 warnings, 0 messages)
