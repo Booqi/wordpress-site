@@ -31,7 +31,7 @@
 			);
 			?>
 		</nav>
-		<a class="button header-cta" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request Demo', 'booqi-classic'); ?></a>
+		<a class="button button-outline" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request Demo', 'booqi-classic'); ?></a>
 	</div>
 </header>
 <main id="content" class="site-main">
