@@ -30,12 +30,35 @@ function booqi_classic_assets() {
 add_action('wp_enqueue_scripts', 'booqi_classic_assets');
 
 function booqi_classic_primary_fallback_menu() {
+	$fallback_links = array(
+		array(
+			'label' => __('Features', 'booqi-classic'),
+			'url'   => home_url('/features/'),
+		),
+		array(
+			'label' => __('Industries', 'booqi-classic'),
+			'url'   => home_url('/industry/'),
+		),
+		array(
+			'label' => __('About Us', 'booqi-classic'),
+			'url'   => home_url('/about-us/'),
+		),
+		array(
+			'label' => __('Blog', 'booqi-classic'),
+			'url'   => home_url('/blog/'),
+		),
+		array(
+			'label' => __('Contact', 'booqi-classic'),
+			'url'   => home_url('/contact/'),
+		),
+	);
+
 	echo '<ul id="primary-menu" class="menu primary-menu">';
-	echo '<li><a href="' . esc_url(home_url('/features/')) . '">' . esc_html__('Features', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/industry/')) . '">' . esc_html__('Industries', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/about-us/')) . '">' . esc_html__('About Us', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/blog/')) . '">' . esc_html__('Blog', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/contact/')) . '">' . esc_html__('Contact', 'booqi-classic') . '</a></li>';
+
+	foreach ($fallback_links as $fallback_link) {
+		echo '<li><a href="' . esc_url($fallback_link['url']) . '">' . esc_html($fallback_link['label']) . '</a></li>';
+	}
+
 	echo '</ul>';
 }
 
@@ -55,10 +78,34 @@ function booqi_classic_footer_primary_links() {
 		return;
 	}
 
+	$fallback_links = array(
+		array(
+			'label' => __('Features', 'booqi-classic'),
+			'url'   => home_url('/features/'),
+		),
+		array(
+			'label' => __('Pricing', 'booqi-classic'),
+			'url'   => home_url('/#pricing'),
+		),
+		array(
+			'label' => __('FAQ', 'booqi-classic'),
+			'url'   => home_url('/#faq'),
+		),
+		array(
+			'label' => __('About Us', 'booqi-classic'),
+			'url'   => home_url('/about-us/'),
+		),
+		array(
+			'label' => __('Blog', 'booqi-classic'),
+			'url'   => home_url('/blog/'),
+		),
+	);
+
 	echo '<ul class="footer-links">';
-	echo '<li><a href="' . esc_url(home_url('/features/')) . '">' . esc_html__('Features', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/#pricing')) . '">' . esc_html__('Pricing', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/about-us/')) . '">' . esc_html__('About Us', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/blog/')) . '">' . esc_html__('Blog', 'booqi-classic') . '</a></li>';
+
+	foreach ($fallback_links as $fallback_link) {
+		echo '<li><a href="' . esc_url($fallback_link['url']) . '">' . esc_html($fallback_link['label']) . '</a></li>';
+	}
+
 	echo '</ul>';
 }
