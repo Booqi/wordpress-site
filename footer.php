@@ -36,7 +36,7 @@ $footer_support_links = array(
 				<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-booqi.svg'); ?>" alt="Booqi.me" width="130" height="32">
 				<p class="footer-brand-tag"><?php esc_html_e('Effortless ticketing', 'booqi-classic'); ?></p>
 			</div>
-			<p><?php esc_html_e('Booqi.me offers the most feature rich ticketing platform to organisations in the leisure industry.', 'booqi-classic'); ?></p>
+			<p><?php esc_html_e('Booqi.me offers the most feature rich ticketing platform to organisations in the leisure industry. Find out why numerous locations choose us to arrange their entrance for them.', 'booqi-classic'); ?></p>
 		</div>
 		<div class="footer-grid">
 			<section class="footer-column" aria-labelledby="footer-booqi-heading">
@@ -74,8 +74,8 @@ $footer_support_links = array(
 	<div class="container footer-bottom">
 		<p>©<?php echo esc_html(wp_date('Y')); ?> <?php esc_html_e('Copyright | All right reserved', 'booqi-classic'); ?></p>
 		<div class="footer-legal-links">
-			<a href="<?php echo esc_url(home_url('/')); ?>"><?php esc_html_e('Privacy & Cookie Policy', 'booqi-classic'); ?></a>
-			<a href="<?php echo esc_url(home_url('/terms-and-conditions/')); ?>"><?php esc_html_e('General Terms & Conditions', 'booqi-classic'); ?></a>
+			<a href="<?php echo esc_url(booqi_classic_get_privacy_policy_page_url()); ?>"><?php esc_html_e('Privacy & Cookie Policy', 'booqi-classic'); ?></a>
+			<a href="<?php echo esc_url(booqi_classic_get_terms_page_url()); ?>"><?php esc_html_e('General Terms & Conditions', 'booqi-classic'); ?></a>
 		</div>
 	</div>
 </footer>
