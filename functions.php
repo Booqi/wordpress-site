@@ -33,8 +33,31 @@ function booqi_classic_primary_fallback_menu() {
 	echo '<ul id="primary-menu" class="menu">';
 	echo '<li><a href="' . esc_url(home_url('/features/')) . '">' . esc_html__('Features', 'booqi-classic') . '</a></li>';
 	echo '<li><a href="' . esc_url(home_url('/industry/')) . '">' . esc_html__('Industries', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/pricing/')) . '">' . esc_html__('Pricing', 'booqi-classic') . '</a></li>';
 	echo '<li><a href="' . esc_url(home_url('/about-us/')) . '">' . esc_html__('About Us', 'booqi-classic') . '</a></li>';
+	echo '<li><a href="' . esc_url(home_url('/blog/')) . '">' . esc_html__('Blog', 'booqi-classic') . '</a></li>';
 	echo '<li><a href="' . esc_url(home_url('/contact/')) . '">' . esc_html__('Contact', 'booqi-classic') . '</a></li>';
+	echo '</ul>';
+}
+
+function booqi_classic_footer_primary_links() {
+	$menu = wp_nav_menu(
+		array(
+			'theme_location' => 'footer',
+			'container'      => false,
+			'fallback_cb'    => false,
+			'menu_class'     => 'footer-links',
+			'echo'           => false,
+		)
+	);
+
+	if ($menu) {
+		echo $menu; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		return;
+	}
+
+	echo '<ul class="footer-links">';
+	echo '<li><a href="' . esc_url(home_url('/#pricing')) . '">' . esc_html__('Pricing', 'booqi-classic') . '</a></li>';
+	echo '<li><a href="' . esc_url(home_url('/#faq')) . '">' . esc_html__('FAQ', 'booqi-classic') . '</a></li>';
+	echo '<li><a href="' . esc_url(home_url('/about-us/')) . '">' . esc_html__('About Us', 'booqi-classic') . '</a></li>';
 	echo '</ul>';
 }
