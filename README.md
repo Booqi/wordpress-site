@@ -1,10 +1,17 @@
 # Booqi Classic WordPress Theme
 
-This repository was converted from an HTTrack mirror into a **custom classic WordPress theme**.
+This repository contains:
 
-## What's included
+- the HTTrack mirror at the repository root as a visual/content reference
+- the production WordPress theme inside `booqi-classic/`
 
-Theme files:
+## Theme folder
+
+The entire uploadable WordPress theme now lives in:
+
+- `booqi-classic/`
+
+That folder contains:
 
 - `style.css`
 - `functions.php`
@@ -19,14 +26,15 @@ Theme files:
 
 ## Installation
 
-1. Copy this theme folder into your WordPress install at:
-   - `wp-content/themes/booqi-classic`.
-2. In WordPress admin, go to **Appearance → Themes**.
-3. Activate **Booqi Classic**.
-4. Go to **Settings → Reading** and set:
+1. Download or zip the `booqi-classic/` folder.
+2. Upload it into your WordPress install at:
+   - `wp-content/themes/booqi-classic`
+3. In WordPress admin, go to **Appearance → Themes**.
+4. Activate **Booqi Classic**.
+5. Go to **Settings → Reading** and set:
    - **Your homepage displays** → **A static page**.
    - Assign your homepage page so WordPress uses `front-page.php`.
-5. Go to **Appearance → Menus** and assign menus to:
+6. Go to **Appearance → Menus** and assign menus to:
    - **Primary Menu**
    - **Footer Menu**
 
