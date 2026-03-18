@@ -30,7 +30,7 @@ function booqi_classic_assets() {
 add_action('wp_enqueue_scripts', 'booqi_classic_assets');
 
 function booqi_classic_primary_fallback_menu() {
-	echo '<ul id="primary-menu" class="menu">';
+	echo '<ul id="primary-menu" class="menu primary-menu">';
 	echo '<li><a href="' . esc_url(home_url('/features/')) . '">' . esc_html__('Features', 'booqi-classic') . '</a></li>';
 	echo '<li><a href="' . esc_url(home_url('/industry/')) . '">' . esc_html__('Industries', 'booqi-classic') . '</a></li>';
 	echo '<li><a href="' . esc_url(home_url('/about-us/')) . '">' . esc_html__('About Us', 'booqi-classic') . '</a></li>';
@@ -56,8 +56,9 @@ function booqi_classic_footer_primary_links() {
 	}
 
 	echo '<ul class="footer-links">';
+	echo '<li><a href="' . esc_url(home_url('/features/')) . '">' . esc_html__('Features', 'booqi-classic') . '</a></li>';
 	echo '<li><a href="' . esc_url(home_url('/#pricing')) . '">' . esc_html__('Pricing', 'booqi-classic') . '</a></li>';
-	echo '<li><a href="' . esc_url(home_url('/#faq')) . '">' . esc_html__('FAQ', 'booqi-classic') . '</a></li>';
 	echo '<li><a href="' . esc_url(home_url('/about-us/')) . '">' . esc_html__('About Us', 'booqi-classic') . '</a></li>';
+	echo '<li><a href="' . esc_url(home_url('/blog/')) . '">' . esc_html__('Blog', 'booqi-classic') . '</a></li>';
 	echo '</ul>';
 }
