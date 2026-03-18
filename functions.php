@@ -39,6 +39,43 @@ function booqi_classic_primary_fallback_menu() {
 	echo '</ul>';
 }
 
+
+function booqi_classic_get_page_url_by_path($paths, $fallback = '/') {
+	foreach ((array) $paths as $path) {
+		$page = get_page_by_path(trim($path, '/'));
+
+		if ($page && isset($page->ID)) {
+			return get_permalink($page->ID);
+		}
+	}
+
+	return home_url($fallback);
+}
+
+function booqi_classic_get_privacy_policy_page_url() {
+	$privacy_policy_url = function_exists('get_privacy_policy_url') ? get_privacy_policy_url() : '';
+
+	if ($privacy_policy_url) {
+		return $privacy_policy_url;
+	}
+
+	return booqi_classic_get_page_url_by_path(
+		array(
+			'privacy-cookie-policy',
+			'privacy-and-cookie-policy',
+			'privacy-policy',
+		),
+		'/privacy-policy/'
+	);
+}
+
+function booqi_classic_get_terms_page_url() {
+	return booqi_classic_get_page_url_by_path(
+		array('terms-and-conditions'),
+		'/terms-and-conditions/'
+	);
+}
+
 function booqi_classic_footer_primary_links() {
 	$menu = wp_nav_menu(
 		array(
