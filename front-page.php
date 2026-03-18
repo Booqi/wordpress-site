@@ -7,15 +7,47 @@
 
 $theme_uri = get_template_directory_uri();
 
-$client_names = array(
-	'Walibi Holland',
-	'DierenPark Amersfoort',
-	'BillyBird',
-	'Autoworld',
-	'Plopsa',
-	'Dierenrijk',
-	'Slagharen',
-	'Attractiepark Toverland',
+$client_logos = array(
+	array(
+		'name'  => 'Walibi Holland',
+		'file'  => 'client-logo-walibi-holland.svg',
+		'class' => 'logo-mark-wide',
+	),
+	array(
+		'name'  => 'DierenPark Amersfoort',
+		'file'  => 'client-logo-dierenpark-amersfoort.svg',
+		'class' => 'logo-mark-tall',
+	),
+	array(
+		'name'  => 'BillyBird',
+		'file'  => 'client-logo-billybird.svg',
+		'class' => 'logo-mark-standard',
+	),
+	array(
+		'name'  => 'Autoworld',
+		'file'  => 'client-logo-autoworld.svg',
+		'class' => 'logo-mark-standard',
+	),
+	array(
+		'name'  => 'Plopsa',
+		'file'  => 'client-logo-plopsa.svg',
+		'class' => 'logo-mark-standard',
+	),
+	array(
+		'name'  => 'Dierenrijk',
+		'file'  => 'client-logo-dierenrijk.svg',
+		'class' => 'logo-mark-standard',
+	),
+	array(
+		'name'  => 'Slagharen',
+		'file'  => 'client-logo-slagharen.svg',
+		'class' => 'logo-mark-wide',
+	),
+	array(
+		'name'  => 'Attractiepark Toverland',
+		'file'  => 'client-logo-attractiepark-toverland.svg',
+		'class' => 'logo-mark-wide',
+	),
 );
 
 $feature_cards = array(
@@ -39,28 +71,24 @@ $feature_cards = array(
 
 $industry_cards = array(
 	array(
-		'title'       => __('Theme Parks', 'booqi-classic'),
-		'description' => __('Speed up entry, upsell extras, and manage seasonal peaks from one ticketing flow.', 'booqi-classic'),
-		'link'        => home_url('/theme-parks-and-recreational-facilities/'),
-		'image'       => 'industry-themepark.svg',
+		'title' => __('Theme Parks', 'booqi-classic'),
+		'link'  => home_url('/theme-parks-and-recreational-facilities/'),
+		'image' => 'industry-theme-parks-scene.svg',
 	),
 	array(
-		'title'       => __('Zoo’s', 'booqi-classic'),
-		'description' => __('Build smoother visitor journeys with timed entry, memberships, and clear capacity control.', 'booqi-classic'),
-		'link'        => home_url('/zoos/'),
-		'image'       => 'industry-zoo.svg',
+		'title' => __("Zoo's", 'booqi-classic'),
+		'link'  => home_url('/zoos/'),
+		'image' => 'industry-zoos-scene.svg',
 	),
 	array(
-		'title'       => __('Musea', 'booqi-classic'),
-		'description' => __('Combine elegant online booking with flexible products for exhibitions, groups, and events.', 'booqi-classic'),
-		'link'        => home_url('/museums/'),
-		'image'       => 'industry-museum.svg',
+		'title' => __('Musea', 'booqi-classic'),
+		'link'  => home_url('/museums/'),
+		'image' => 'industry-museums-scene.svg',
 	),
 	array(
-		'title'       => __('Swimming Pools', 'booqi-classic'),
-		'description' => __('Handle lessons, lane bookings, subscriptions, and walk-ins with less operational friction.', 'booqi-classic'),
-		'link'        => home_url('/swimming-pools/'),
-		'image'       => 'industry-themepark.svg',
+		'title' => __('Swimming Pools', 'booqi-classic'),
+		'link'  => home_url('/swimming-pools/'),
+		'image' => 'industry-swimming-pools-scene.svg',
 	),
 );
 
@@ -164,37 +192,28 @@ get_header();
 			</div>
 		</div>
 		<div class="hero-visual" aria-hidden="true">
-			<div class="hero-stage">
-				<div class="hero-stage-glow hero-stage-glow-left"></div>
-				<div class="hero-stage-glow hero-stage-glow-right"></div>
-				<div class="hero-stage-screen">
-					<div class="hero-stage-header">
-						<span></span><span></span><span></span>
-					</div>
-					<div class="hero-stage-body">
-						<div class="hero-metric hero-metric-primary">
-							<p><?php esc_html_e('Revenue', 'booqi-classic'); ?></p>
-							<strong>€24.5K</strong>
-							<span>+18%</span>
-						</div>
-						<div class="hero-chart-card">
-							<p><?php esc_html_e('Sales Today', 'booqi-classic'); ?></p>
-							<ul>
-								<li><?php esc_html_e('Tickets', 'booqi-classic'); ?></li>
-								<li><?php esc_html_e('Subscriptions', 'booqi-classic'); ?></li>
-								<li><?php esc_html_e('Upsells', 'booqi-classic'); ?></li>
-								<li><?php esc_html_e('Vouchers', 'booqi-classic'); ?></li>
-							</ul>
-							<div class="hero-bars">
-								<span></span><span></span><span></span><span></span><span></span>
-							</div>
-						</div>
-						<div class="hero-metric hero-metric-secondary">
-							<p><?php esc_html_e('Visitors', 'booqi-classic'); ?></p>
-							<strong>1,284</strong>
-							<span><?php esc_html_e('Check-ins', 'booqi-classic'); ?></span>
-						</div>
-					</div>
+			<div class="hero-composition">
+				<figure class="hero-product-shot">
+					<img src="<?php echo esc_url($theme_uri . '/assets/images/hero-product-graphic.svg'); ?>" alt="">
+				</figure>
+				<div class="hero-float-card hero-float-card-revenue">
+					<p><?php esc_html_e('Revenue', 'booqi-classic'); ?></p>
+					<strong>€24.5K</strong>
+					<span>+18%</span>
+				</div>
+				<div class="hero-float-card hero-float-card-sales">
+					<p><?php esc_html_e('Sales Today', 'booqi-classic'); ?></p>
+					<ul>
+						<li><?php esc_html_e('Tickets', 'booqi-classic'); ?></li>
+						<li><?php esc_html_e('Subscriptions', 'booqi-classic'); ?></li>
+						<li><?php esc_html_e('Upsells', 'booqi-classic'); ?></li>
+						<li><?php esc_html_e('Vouchers', 'booqi-classic'); ?></li>
+					</ul>
+				</div>
+				<div class="hero-float-card hero-float-card-visitors">
+					<p><?php esc_html_e('Visitors', 'booqi-classic'); ?></p>
+					<strong>1,284</strong>
+					<small><?php esc_html_e('Check-ins', 'booqi-classic'); ?></small>
 				</div>
 			</div>
 		</div>
@@ -205,14 +224,18 @@ get_header();
 	<div class="container logo-strip-shell">
 		<p class="logo-strip-label"><?php esc_html_e('Used by the world’s most incredible teams:', 'booqi-classic'); ?></p>
 		<div class="logo-strip-marquee">
-			<div class="logo-strip-track">
-				<?php foreach ($client_names as $client_name) : ?>
-					<span class="logo-chip"><?php echo esc_html($client_name); ?></span>
+			<ul class="logo-strip-track" role="list">
+				<?php foreach ($client_logos as $logo) : ?>
+					<li class="logo-mark <?php echo esc_attr($logo['class']); ?>">
+						<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $logo['file']); ?>" alt="<?php echo esc_attr($logo['name']); ?>">
+					</li>
 				<?php endforeach; ?>
-				<?php foreach ($client_names as $client_name) : ?>
-					<span class="logo-chip" aria-hidden="true"><?php echo esc_html($client_name); ?></span>
+				<?php foreach ($client_logos as $logo) : ?>
+					<li class="logo-mark <?php echo esc_attr($logo['class']); ?>" aria-hidden="true">
+						<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $logo['file']); ?>" alt="">
+					</li>
 				<?php endforeach; ?>
-			</div>
+			</ul>
 		</div>
 	</div>
 </section>
@@ -244,19 +267,18 @@ get_header();
 	</div>
 	<div class="container industry-grid">
 		<?php foreach ($industry_cards as $industry) : ?>
-			<a class="industry-card" href="<?php echo esc_url($industry['link']); ?>">
-				<div class="industry-card-media">
-					<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $industry['image']); ?>" alt="<?php echo esc_attr($industry['title']); ?>">
-				</div>
-				<div class="industry-card-body">
-					<div class="industry-card-copy">
+			<article class="industry-card">
+				<a class="industry-card-link-wrap" href="<?php echo esc_url($industry['link']); ?>">
+					<div class="industry-card-body">
 						<p class="industry-card-kicker"><?php esc_html_e('Industries', 'booqi-classic'); ?></p>
 						<h3><?php echo esc_html($industry['title']); ?></h3>
-						<p><?php echo esc_html($industry['description']); ?></p>
+						<span class="industry-card-link"><?php esc_html_e('Explore industry', 'booqi-classic'); ?></span>
 					</div>
-					<span class="industry-card-link"><?php esc_html_e('Explore industry', 'booqi-classic'); ?></span>
-				</div>
-			</a>
+					<figure class="industry-card-media">
+						<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $industry['image']); ?>" alt="<?php echo esc_attr($industry['title']); ?>">
+					</figure>
+				</a>
+			</article>
 		<?php endforeach; ?>
 	</div>
 </section>
