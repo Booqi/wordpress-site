@@ -1,0 +1,15 @@
+/*
+Theme Name: Booqi Classic
+Author: OpenAI
+Description: A lightweight classic WordPress theme foundation for Booqi, rebuilt from the bundled design references.
+Version: 0.1.0
+Requires at least: 6.4
+Tested up to: 6.7
+Requires PHP: 7.4
+Text Domain: booqi-classic
+*/
+
+/*
+ * Theme styles are enqueued from assets/css/main.css.
+ * Keep this file lean so WordPress can detect the theme cleanly.
+ */
