@@ -33,7 +33,8 @@ $cards = $args['cards'] ?? array();
 						'title'           => $card['title'],
 						'text'            => $card['description'],
 						'art_class'       => 'homepage-industries__art',
-						'aria_hidden_art' => true,
+						'image_src'       => $card['image_src'],
+						'image_alt'       => $card['title'],
 					)
 				);
 				?>

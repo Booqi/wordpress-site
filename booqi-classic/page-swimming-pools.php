@@ -14,6 +14,8 @@ get_template_part(
 		'title'            => __( 'Swimming Pools', 'booqi-classic' ),
 		'description'      => __( 'Streamline ticketing, access control, session planning, and recurring visitor management for public and recreational pools.', 'booqi-classic' ),
 		'lead'             => __( 'The mirrored Booqi.me swimming pools page focuses on inefficient ticketing and limited access control. This version gives the page a reusable marketing structure.', 'booqi-classic' ),
+		'hero_image'       => booqi_classic_get_image_uri( 'industries/swimming-pools.svg' ),
+		'hero_image_alt'   => __( 'Swimming pool illustration with lane lines and access ladder.', 'booqi-classic' ),
 		'metrics'          => array(
 			array( 'label' => __( 'Sessions', 'booqi-classic' ), 'value' => __( 'Scheduled', 'booqi-classic' ), 'meta' => __( 'Manage lane swims, family sessions, lessons, and special programs with clearer capacity control.', 'booqi-classic' ), 'highlight' => true ),
 			array( 'label' => __( 'Recurring visitors', 'booqi-classic' ), 'value' => __( 'Supported', 'booqi-classic' ), 'meta' => __( 'Handle memberships, lesson blocks, and passes more consistently.', 'booqi-classic' ) ),

@@ -14,6 +14,8 @@ get_template_part(
 		'title'            => __( 'Theme Parks and Recreational Facilities', 'booqi-classic' ),
 		'description'      => __( 'Replace complex ticketing and revenue management with one connected flow for admission, add-ons, memberships, and guest access.', 'booqi-classic' ),
 		'lead'             => __( 'This structure follows the mirrored Booqi.me vertical page while giving the theme a cleaner reusable layout for theme parks and similar attractions.', 'booqi-classic' ),
+		'hero_image'       => booqi_classic_get_image_uri( 'industries/theme-parks.svg' ),
+		'hero_image_alt'   => __( 'Theme park illustration with a coaster silhouette and ticket card.', 'booqi-classic' ),
 		'metrics'          => array(
 			array( 'label' => __( 'Peak days', 'booqi-classic' ), 'value' => __( 'Controlled', 'booqi-classic' ), 'meta' => __( 'Timed entry and demand-based pricing help reduce pressure at the gate.', 'booqi-classic' ), 'highlight' => true ),
 			array( 'label' => __( 'Season passes', 'booqi-classic' ), 'value' => __( 'Unified', 'booqi-classic' ), 'meta' => __( 'Keep memberships, renewals, and loyalty offers aligned in one account flow.', 'booqi-classic' ) ),

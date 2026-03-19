@@ -52,6 +52,26 @@ function booqi_classic_enqueue_assets() {
 add_action( 'wp_enqueue_scripts', 'booqi_classic_enqueue_assets' );
 
 /**
+ * Returns a theme asset URI for a relative path inside the assets directory.
+ *
+ * @param string $path Relative asset path.
+ * @return string
+ */
+function booqi_classic_get_asset_uri( $path ) {
+	return trailingslashit( get_template_directory_uri() ) . ltrim( 'assets/' . $path, '/' );
+}
+
+/**
+ * Returns a theme image asset URI for a relative path inside assets/images.
+ *
+ * @param string $path Relative image asset path.
+ * @return string
+ */
+function booqi_classic_get_image_uri( $path ) {
+	return booqi_classic_get_asset_uri( 'images/' . ltrim( $path, '/' ) );
+}
+
+/**
  * Filters menu link attributes for header and footer presentation.
  *
  * @param array    $atts Link attributes.

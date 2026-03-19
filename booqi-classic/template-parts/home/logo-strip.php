@@ -12,7 +12,9 @@ $logos = $args['logos'] ?? array();
 		<p class="homepage-logo-strip__title"><?php esc_html_e( 'Used by the world’s most incredible teams:', 'booqi-classic' ); ?></p>
 		<ul class="homepage-logo-strip__list" aria-label="<?php esc_attr_e( 'Selected Booqi customers', 'booqi-classic' ); ?>">
 			<?php foreach ( $logos as $logo ) : ?>
-				<li class="homepage-logo-strip__item"><?php echo esc_html( $logo ); ?></li>
+				<li class="homepage-logo-strip__item">
+					<img class="homepage-logo-strip__image" src="<?php echo esc_url( $logo['src'] ); ?>" alt="<?php echo esc_attr( sprintf( __( '%s logo', 'booqi-classic' ), $logo['name'] ) ); ?>" loading="lazy">
+				</li>
 			<?php endforeach; ?>
 		</ul>
 	</div>
