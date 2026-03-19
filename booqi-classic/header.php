@@ -13,30 +13,6 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
-<?php
-$booqi_header_links = array(
-	array(
-		'label' => __( 'Features', 'booqi-classic' ),
-		'url'   => home_url( '/features' ),
-	),
-	array(
-		'label' => __( 'Industries', 'booqi-classic' ),
-		'url'   => home_url( '/industry' ),
-	),
-	array(
-		'label' => __( 'About us', 'booqi-classic' ),
-		'url'   => home_url( '/about-us' ),
-	),
-	array(
-		'label' => __( 'Blog', 'booqi-classic' ),
-		'url'   => home_url( '/blog' ),
-	),
-	array(
-		'label' => __( 'Contact', 'booqi-classic' ),
-		'url'   => home_url( '/contact' ),
-	),
-);
-?>
 <a class="screen-reader-text skip-link" href="#main-content"><?php esc_html_e( 'Skip to content', 'booqi-classic' ); ?></a>
 <div class="site-shell">
 	<header class="site-header">
@@ -63,17 +39,18 @@ $booqi_header_links = array(
 				</button>
 
 				<nav id="site-navigation" class="site-nav" aria-label="<?php esc_attr_e( 'Primary menu', 'booqi-classic' ); ?>">
-					<ul class="site-nav__list">
-						<?php foreach ( $booqi_header_links as $booqi_header_link ) : ?>
-							<li>
-								<a class="site-nav__link" href="<?php echo esc_url( $booqi_header_link['url'] ); ?>">
-									<?php echo esc_html( $booqi_header_link['label'] ); ?>
-								</a>
-							</li>
-						<?php endforeach; ?>
-					</ul>
+					<?php
+					wp_nav_menu(
+						array(
+							'theme_location' => 'primary',
+							'container'      => false,
+							'menu_class'     => 'site-nav__list',
+							'fallback_cb'    => 'booqi_classic_primary_menu_fallback',
+						)
+					);
+					?>
 					<div class="site-nav__actions">
-						<a class="button button--small" href="<?php echo esc_url( home_url( '/book-demo' ) ); ?>"><?php esc_html_e( 'Request Demo', 'booqi-classic' ); ?></a>
+						<a class="button button--small" href="<?php echo esc_url( home_url( '/book-demo' ) ); ?>"><?php esc_html_e( 'Book a Demo', 'booqi-classic' ); ?></a>
 					</div>
 				</nav>
 			</div>
