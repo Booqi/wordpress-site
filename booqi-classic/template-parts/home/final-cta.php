@@ -18,7 +18,7 @@ get_template_part(
 		'actions'       => array(
 			array(
 				'label' => __( 'Request demo', 'booqi-classic' ),
-				'url'   => home_url( '/book-demo' ),
+				'url'   => booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ),
 			),
 		),
 	)

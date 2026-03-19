@@ -74,7 +74,7 @@ $industry_cards = array(
 	array(
 		'title'       => __( 'Theme Parks', 'booqi-classic' ),
 		'description' => __( 'Keep every gate, upsell, and season-pass moment connected in one ticketing flow.', 'booqi-classic' ),
-		'url'         => home_url( '/theme-parks' ),
+		'url'         => booqi_classic_get_page_url( array( 'theme-parks', 'theme-parks-and-recreational-facilities' ), '/theme-parks' ),
 		'accent'      => 'theme-park',
 	),
 	array(
@@ -86,7 +86,7 @@ $industry_cards = array(
 	array(
 		'title'       => __( 'Musea', 'booqi-classic' ),
 		'description' => __( 'Launch exhibitions, timed entry, and cultural events with clear visitor control.', 'booqi-classic' ),
-		'url'         => home_url( '/musea' ),
+		'url'         => booqi_classic_get_page_url( array( 'museums', 'musea' ), '/museums' ),
 		'accent'      => 'museum',
 	),
 	array(
@@ -138,7 +138,7 @@ $pricing_tiers = array(
 		'price'        => __( 'Request your price', 'booqi-classic' ),
 		'highlight'    => true,
 		'button_label' => __( 'Request Demo', 'booqi-classic' ),
-		'button_url'   => home_url( '/book-demo' ),
+		'button_url'   => booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ),
 		'features'     => array(
 			__( 'All platform features', 'booqi-classic' ),
 			__( 'Access to essential features', 'booqi-classic' ),
