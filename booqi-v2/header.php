@@ -14,17 +14,18 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 <header class="site-header">
-	<div class="container site-header__inner">
+	<div class="container header-inner">
 		<a class="site-branding" href="<?php echo esc_url(home_url('/')); ?>" aria-label="<?php esc_attr_e('Homepage', 'booqi-v2'); ?>">
-			<span class="site-branding__name"><?php bloginfo('name'); ?></span>
+			<img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/logo-booqi.svg'); ?>" alt="Booqi.me" width="130" height="32">
 		</a>
-
-		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
-			<span class="screen-reader-text"><?php esc_html_e('Toggle navigation', 'booqi-v2'); ?></span>
-			<span aria-hidden="true">☰</span>
+		<button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="<?php esc_attr_e('Toggle navigation', 'booqi-v2'); ?>">
+			<span class="menu-toggle-box" aria-hidden="true">
+				<span class="menu-toggle-line"></span>
+				<span class="menu-toggle-line"></span>
+			</span>
+			<span class="screen-reader-text"><?php esc_html_e('Menu', 'booqi-v2'); ?></span>
 		</button>
-
-		<div class="site-header__nav-shell">
+		<div class="primary-nav-shell">
 			<nav id="site-navigation" class="primary-nav" aria-label="<?php esc_attr_e('Primary navigation', 'booqi-v2'); ?>">
 				<?php
 				wp_nav_menu(
@@ -39,6 +40,9 @@
 				);
 				?>
 			</nav>
+			<div class="header-actions">
+				<a class="button button-outline" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request Demo', 'booqi-v2'); ?></a>
+			</div>
 		</div>
 	</div>
 </header>
