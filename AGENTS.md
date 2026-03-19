@@ -90,6 +90,25 @@ If a choice must be made:
 
 ---
 
+## Additional reference materials
+
+The repository may now also include hand-added design/reference material to support more accurate rebuilds.
+
+Current reference sources may include:
+- `assets/`: a repo-level reference folder containing downloaded images, icons, media, and other page-specific assets from the actual site
+- `Rocketsales+–+SaaS+Landing+Page.fig`: the original Framer/Figma template source used as the starting point before Booqi-specific customization
+- `Screencaptures/`: page screenshots exported as PNGs to show the real visual appearance of each page
+
+Usage guidance for these materials:
+- Treat these files as **reference inputs** for rebuilding the WordPress theme, not as production structure to embed directly
+- Page-specific folders inside `assets/` are named after the relevant page slug; the homepage folder is named `homepage`
+- Prefer these uploaded assets and screenshots over inferred details from the mirrored site whenever they provide clearer or more accurate information
+- Use the Figma file to understand layout intent, spacing, component structure, and design system decisions where the mirror is incomplete or misleading
+- Keep implementation clean: extract content, media, spacing, and design cues without copying generated Framer markup or introducing brittle structure
+- When mirrored pages, screenshots, assets, and Figma differ, prioritize the source that best reflects the actual current Booqi page being rebuilt and note major assumptions in PR notes
+
+---
+
 ## WordPress development standards
 
 Always prefer native WordPress patterns.
