@@ -184,7 +184,6 @@ get_header();
 <section class="hero section">
 	<div class="container hero-shell">
 		<div class="hero-copy hero-copy-centered">
-			<p class="eyebrow"><?php esc_html_e('Effortless ticketing', 'booqi-classic'); ?></p>
 			<h1><?php esc_html_e('Enhance your ticketing experience', 'booqi-classic'); ?></h1>
 			<p class="hero-lead"><?php esc_html_e('Booqi.me offers the most feature rich ticketing platform to organisations in the leisure industry. Find out why numerous locations choose us to arrange their entrance for them.', 'booqi-classic'); ?></p>
 			<div class="hero-actions hero-actions-centered">
@@ -192,16 +191,24 @@ get_header();
 			</div>
 		</div>
 		<div class="hero-visual" aria-hidden="true">
+			<div class="hero-visual-backdrop">
+				<span class="hero-backdrop-ring hero-backdrop-ring-large"></span>
+				<span class="hero-backdrop-ring hero-backdrop-ring-medium"></span>
+				<span class="hero-backdrop-ring hero-backdrop-ring-small"></span>
+			</div>
 			<div class="hero-composition">
+				<div class="hero-grid-overlay"></div>
 				<figure class="hero-product-shot">
 					<img src="<?php echo esc_url($theme_uri . '/assets/images/hero-product-graphic.svg'); ?>" alt="">
 				</figure>
 				<div class="hero-float-card hero-float-card-revenue">
+					<div class="hero-float-card-shimmer"></div>
 					<p><?php esc_html_e('Revenue', 'booqi-classic'); ?></p>
 					<strong>€24.5K</strong>
 					<span>+18%</span>
 				</div>
 				<div class="hero-float-card hero-float-card-sales">
+					<div class="hero-float-card-shimmer"></div>
 					<p><?php esc_html_e('Sales Today', 'booqi-classic'); ?></p>
 					<ul>
 						<li><?php esc_html_e('Tickets', 'booqi-classic'); ?></li>
@@ -211,6 +218,7 @@ get_header();
 					</ul>
 				</div>
 				<div class="hero-float-card hero-float-card-visitors">
+					<div class="hero-float-card-shimmer"></div>
 					<p><?php esc_html_e('Visitors', 'booqi-classic'); ?></p>
 					<strong>1,284</strong>
 					<small><?php esc_html_e('Check-ins', 'booqi-classic'); ?></small>
