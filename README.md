@@ -1,8 +1,8 @@
 # Booqi Classic WordPress Theme Foundation
 
-This repository now includes a fresh classic WordPress theme scaffold in `booqi-classic/`.
+This repository now includes a refined classic WordPress theme scaffold in `booqi-classic/`.
 
-The first pass intentionally focuses on **theme structure and reusable design-system primitives**, not on full page/content migration.
+The current pass focuses on the **global shell and reusable layout system**, not on full page/content migration.
 
 ## What was used as design input
 
@@ -11,7 +11,7 @@ Primary reference materials inspected in this repository:
 - `sitedesign/Rocketsales+–+SaaS+Landing+Page.fig`
 - `sitedesign/Screencaptures/screencapture-booqi-me-2026-03-19-08_30_51.png`
 
-Implementation intentionally did **not** use old removed themes and did **not** use the mirrored HTML pages as build input for this first scaffold.
+For this iteration, those design files were treated as the source of truth for the overall visual direction and shell behavior. The mirrored HTML pages were intentionally not used.
 
 ## Theme structure
 
@@ -32,75 +32,74 @@ Core files included:
 - `booqi-classic/assets/js/main.js`
 - `booqi-classic/assets/images/`
 
-## What is implemented
+## What is improved in this pass
 
-### WordPress foundation
+### Global theme shell
 
-- classic theme scaffold with the required template files
-- proper asset enqueueing in `functions.php`
-- registered `primary` and `footer` menus
-- theme supports for:
-  - title tag
-  - post thumbnails
-  - HTML5 markup
-  - custom logo
-  - selective refresh
-  - align-wide
-  - editor styles
-- semantic `header`, `main`, and `footer` structure
-- lightweight mobile navigation toggle
+The reusable shell is now more polished and closer to the bundled design direction:
 
-### Design system in `assets/css/main.css`
+- stronger dark-page foundation with cool dark-blue surfaces instead of flatter dark green blocks
+- brighter mint accent treatment for CTAs, tags, and highlights
+- a more deliberate spacing scale for sections, cards, and footer layout
+- larger radii and softer panel shadows to better match the premium SaaS look in the references
+- clearer container widths and reading widths for future page sections
 
-The reusable design system includes:
+### Header
 
-- **colors**: dark base surfaces, bright mint/teal accent, soft neutral light sections
-- **typography scale**: tokenized type sizes from small labels to large hero headlines
-- **spacing system**: consistent spacing tokens for sections, cards, and layout gaps
-- **radius system**: small, medium, large, extra-large, and pill radii
-- **shadows**: soft elevated shadows for panels/cards
-- **buttons**: primary mint CTA and ghost secondary button
-- **cards/panels**: reusable surfaced containers for feature blocks and dashboard-like modules
-- **layout widths**: page container and reading-width tokens
-- **responsive behavior**: tablet/mobile adjustments for nav, hero, cards, and footer
+The header was refined to feel more like a deliberate product-marketing shell:
+
+- improved logo/wordmark placement with a dedicated brand mark area
+- a more compact floating navigation container
+- better nav-item spacing and hover/active treatment
+- stronger header CTA grouping with both secondary and primary actions
+- cleaner responsive behavior using the existing lightweight mobile toggle
+
+### Footer
+
+The footer now has a more structured multi-column layout:
+
+- a brand/intro column
+- a WordPress menu column for reusable footer navigation
+- a product-links column for likely global destinations
+- a meta/foundation column for implementation notes and reusable structure
+- a separated legal/meta row at the bottom
+
+### Front page proof section
+
+`front-page.php` still remains intentionally limited in scope, but it now demonstrates the shell more effectively through:
+
+- one stronger hero section
+- one reusable content/card section
+- one CTA section
+- the updated header and footer wrapped around those sections
 
 ## Assumptions taken from the design files
 
-The bundled screenshot and Figma metadata clearly suggested:
+The bundled screenshot and Figma metadata clearly indicated:
 
-- a **dark overall visual foundation**
-- a **bright mint/teal accent color** used for CTAs and highlights
-- **rounded interface panels/cards**
-- **high contrast typography**
-- **alternating dark/light sections**
-- a modern SaaS landing-page layout language
+- a dark, premium overall shell
+- bright mint CTA emphasis
+- rounded cards/panels with soft glow and shadow
+- generous vertical spacing
+- strong contrast between dark hero/footer areas and light informational sections
 
-Because the repository did not include easily extractable design-token exports or packaged local font files, the scaffold makes the smallest reasonable assumptions:
+The repository does **not** currently provide a clean exported token file or easy-to-query semantic Figma component documentation, so the implementation makes the smallest reasonable assumptions:
 
-- it uses a system/Inter-style sans-serif stack instead of bundling a custom font
-- it defines the palette and spacing from the visual references rather than from explicit token JSON
-- it keeps the homepage intentionally minimal so future page implementation can stay clean and component-based
-
-## Front page status
-
-`front-page.php` is only a **starter proof** that the theme is working. It includes:
-
-- a hero placeholder section
-- one sample content/features section
-- one CTA section
-
-This is intentional and matches the requested scope.
+- it uses a system/Inter-style sans-serif stack instead of packaging custom fonts
+- it infers exact spacing, radius, and shadow values from the screenshot/Figma preview rather than from exported variables
+- it uses representative global navigation/footer structure for shell quality, not final Booqi information architecture
+- it keeps homepage content intentionally generic so the next pass can map real Booqi sections cleanly
 
 ## What should be built next
 
 Recommended next steps:
 
-1. implement the real homepage section-by-section against the Figma and screenshot references
-2. replace placeholder header/footer content with Booqi-specific navigation and structured footer content
-3. add reusable template parts for repeated homepage sections
-4. build the Features page using the same tokenized card and section system
-5. add localization-ready handling for user-facing strings where content becomes more final
-6. introduce real Booqi imagery/logos once approved assets are selected from the repository references
+1. build the actual homepage section-by-section from the design references using reusable template patterns
+2. replace the provisional demo copy in the starter hero/cards/CTA with final Booqi content
+3. refine the final information architecture for header and footer menus once approved
+4. extract repeated homepage patterns into template parts as sections become real
+5. continue with Features and industry pages using the same tokenized section/card system
+6. prepare user-facing strings for easier future localization
 
 ## Installation
 
