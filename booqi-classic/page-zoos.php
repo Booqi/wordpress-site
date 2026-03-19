@@ -14,6 +14,8 @@ get_template_part(
 		'title'            => __( 'Zoos', 'booqi-classic' ),
 		'description'      => __( 'Support day tickets, memberships, donations, and educational visits in one calmer, more efficient ticketing experience.', 'booqi-classic' ),
 		'lead'             => __( 'The Booqi.me zoo page focuses on overcoming operational cost pressure and limited ticketing flexibility. This template gives that story a reusable structure.', 'booqi-classic' ),
+		'hero_image'       => booqi_classic_get_image_uri( 'industries/zoos.svg' ),
+		'hero_image_alt'   => __( 'Zoo illustration with layered foliage and an animal icon.', 'booqi-classic' ),
 		'metrics'          => array(
 			array( 'label' => __( 'Memberships', 'booqi-classic' ), 'value' => __( 'Connected', 'booqi-classic' ), 'meta' => __( 'Renewals, perks, and recurring visitor data stay in one account system.', 'booqi-classic' ), 'highlight' => true ),
 			array( 'label' => __( 'Capacity', 'booqi-classic' ), 'value' => __( 'Visible', 'booqi-classic' ), 'meta' => __( 'Plan busy weekends, school breaks, and special programs with better oversight.', 'booqi-classic' ) ),

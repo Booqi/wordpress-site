@@ -17,6 +17,10 @@ $defaults = array(
 	'title_class' => '',
 	'text'        => '',
 	'text_class'  => '',
+	'image_src'   => '',
+	'image_alt'   => '',
+	'image_class' => '',
+	'image_loading' => 'lazy',
 );
 
 $args = wp_parse_args( $args ?? array(), $defaults );
@@ -26,6 +30,11 @@ if ( '' === $args['value'] && '' === $args['title'] ) {
 }
 ?>
 <article class="stat-card <?php echo esc_attr( trim( $args['card_class'] ) ); ?>">
+	<?php if ( $args['image_src'] ) : ?>
+		<div class="stat-card__media">
+			<img class="<?php echo esc_attr( trim( 'stat-card__image ' . $args['image_class'] ) ); ?>" src="<?php echo esc_url( $args['image_src'] ); ?>" alt="<?php echo esc_attr( $args['image_alt'] ); ?>" loading="<?php echo esc_attr( $args['image_loading'] ); ?>">
+		</div>
+	<?php endif; ?>
 	<?php if ( $args['label'] ) : ?>
 		<p class="<?php echo esc_attr( $args['label_class'] ); ?>"><?php echo esc_html( $args['label'] ); ?></p>
 	<?php endif; ?>

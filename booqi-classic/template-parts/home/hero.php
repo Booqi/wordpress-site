@@ -32,20 +32,7 @@ $stats = $args['stats'] ?? array();
 			</div>
 			<div class="homepage-hero__board">
 				<div class="homepage-hero__screen">
-					<div class="homepage-hero__screen-header">
-						<span class="homepage-hero__screen-title"><?php esc_html_e( 'Ticket performance', 'booqi-classic' ); ?></span>
-						<span class="homepage-hero__screen-pill"><?php esc_html_e( 'Live', 'booqi-classic' ); ?></span>
-					</div>
-					<div class="homepage-hero__chart" aria-hidden="true">
-						<span></span><span></span><span></span><span></span><span></span>
-					</div>
-					<div class="homepage-hero__ring-row">
-						<div class="homepage-hero__ring"></div>
-						<div class="homepage-hero__screen-copy">
-							<strong><?php esc_html_e( 'Visitor flow under control', 'booqi-classic' ); ?></strong>
-							<p><?php esc_html_e( 'Track arrivals, upsells, subscriptions, and check-ins from one dashboard.', 'booqi-classic' ); ?></p>
-						</div>
-					</div>
+					<img class="homepage-hero__image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'homepage/hero-dashboard.svg' ) ); ?>" alt="<?php esc_attr_e( 'Dashboard mockup with ticketing and revenue metrics.', 'booqi-classic' ); ?>">
 				</div>
 				<div class="homepage-hero__stats">
 					<?php foreach ( $stats as $stat ) : ?>
