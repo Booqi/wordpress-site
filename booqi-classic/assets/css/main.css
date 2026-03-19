@@ -112,6 +112,8 @@ body {
   line-height: var(--line-height-body);
 }
 
+.homepage-main { overflow: hidden; }
+
 img { max-width: 100%; display: block; }
 a { color: inherit; text-decoration: none; }
 p, ul { margin: 0; }
@@ -146,6 +148,22 @@ ul { padding: 0; }
 .section-soft {
   background:
     linear-gradient(180deg, rgba(10, 16, 23, 0.94), rgba(7, 0, 24, 0.98));
+}
+
+.section-heading-on-light h2,
+.section-heading-on-light h3,
+.section-heading-on-light p:not(.eyebrow) {
+  color: var(--color-text-dark);
+}
+
+.section-heading-on-light .eyebrow {
+  border-color: rgba(7, 0, 24, 0.12);
+  background: rgba(7, 0, 24, 0.04);
+  color: var(--color-text-dark);
+}
+
+.section-heading-on-light .eyebrow::before {
+  background: var(--primary-strong);
 }
 .section-heading {
   display: grid;
@@ -703,8 +721,69 @@ address,
   display: grid;
   gap: 24px;
 }
+.feature-list {
+  display: grid;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .feature-grid {
   grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.section-features {
+  background: linear-gradient(180deg, #fbfafd 0%, #f3f7f8 100%);
+}
+.feature-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 30px;
+  align-items: center;
+  padding: 32px;
+}
+.feature-showcase-visual,
+.feature-showcase-copy {
+  min-width: 0;
+}
+.feature-showcase-screen {
+  position: relative;
+  min-height: 100%;
+  padding: 28px;
+  border: 1px solid rgba(7, 0, 24, 0.08);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at top center, rgba(40, 203, 174, 0.18), rgba(40, 203, 174, 0) 54%),
+    linear-gradient(180deg, rgba(8, 17, 24, 1), rgba(15, 27, 37, 0.96));
+  box-shadow: 0 20px 56px rgba(11, 19, 29, 0.18);
+}
+.feature-showcase-image {
+  margin: 0;
+}
+.feature-showcase-image img {
+  width: 100%;
+  height: auto;
+}
+.feature-showcase-badge {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 28px;
+  display: grid;
+  gap: 8px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  background: rgba(7, 0, 24, 0.72);
+  box-shadow: var(--shadow-md);
+}
+.feature-showcase-badge strong {
+  font-size: 1rem;
+  line-height: 1.2;
+}
+.feature-showcase-badge span {
+  color: rgba(243, 240, 245, 0.84);
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
 }
 .feature-card {
   padding: 28px;
@@ -712,6 +791,15 @@ address,
   border-radius: 24px;
   background: linear-gradient(180deg, rgba(16, 24, 36, 0.96), rgba(9, 14, 21, 0.92));
   box-shadow: var(--shadow-soft);
+}
+.section-features .feature-card {
+  border-color: rgba(7, 0, 24, 0.08);
+  background: #ffffff;
+  box-shadow: none;
+}
+.section-features .feature-card.is-active {
+  background: linear-gradient(180deg, #0e1720, #131f2d);
+  box-shadow: 0 18px 40px rgba(8, 17, 24, 0.22);
 }
 .feature-number {
   margin-bottom: 18px;
@@ -724,6 +812,15 @@ address,
   color: #f3f0f5;
   font-size: 1rem;
   line-height: 1.55;
+}
+.section-features .feature-card p:last-child {
+  color: var(--color-text-dark);
+}
+.section-features .feature-card.is-active .feature-number {
+  color: #7af1dd;
+}
+.section-features .feature-card.is-active p:last-child {
+  color: var(--color-text-inverse);
 }
 
 .industry-grid {
@@ -808,6 +905,30 @@ address,
 .proof-spotlight p {
   font-size: 1.06rem;
   line-height: 1.75;
+}
+.proof-platform {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(280px, 1.1fr);
+  gap: 28px;
+  align-items: center;
+  padding: 32px;
+}
+.proof-platform-copy {
+  display: grid;
+  gap: 18px;
+}
+.proof-platform-copy .badge {
+  background: rgba(255, 255, 255, 0.06);
+}
+.proof-platform-copy p:last-child {
+  color: var(--muted-light);
+}
+.proof-platform-visual {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.02);
 }
 .benefit-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1074,6 +1195,11 @@ address strong { color: var(--text); }
   .proof-intro,
   .footer-grid { grid-template-columns: 1fr; }
 
+  .feature-showcase,
+  .proof-platform {
+    grid-template-columns: 1fr;
+  }
+
   .hero {
     padding-top: 128px;
   }
@@ -1168,6 +1294,10 @@ address strong { color: var(--text); }
     grid-template-columns: 1fr;
   }
 
+  .feature-showcase-visual {
+    order: -1;
+  }
+
   .hero {
     padding-top: 118px;
   }
@@ -1250,9 +1380,11 @@ address strong { color: var(--text); }
 
   .hero-composition,
   .proof-spotlight,
+  .proof-platform,
   .benefit-card,
   .price-card,
   .cta,
+  .feature-showcase,
   .feature-card,
   .industry-card-link-wrap,
   .footer-branding,
@@ -1297,6 +1429,11 @@ address strong { color: var(--text); }
     display: grid;
     gap: 16px;
     padding: 0;
+  }
+
+  .feature-showcase-badge {
+    position: static;
+    margin-top: 20px;
   }
 
   .hero-float-card-sales ul {
