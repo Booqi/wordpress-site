@@ -43,7 +43,7 @@ add_action( 'after_setup_theme', 'booqi_classic_setup' );
  * @return void
  */
 function booqi_classic_enqueue_assets() {
-	$theme = wp_get_theme();
+	$theme   = wp_get_theme();
 	$version = $theme->get( 'Version' ) ? $theme->get( 'Version' ) : BOOQI_CLASSIC_VERSION;
 
 	wp_enqueue_style( 'booqi-classic-main', get_template_directory_uri() . '/assets/css/main.css', array(), $version );
@@ -61,7 +61,7 @@ add_action( 'wp_enqueue_scripts', 'booqi_classic_enqueue_assets' );
  */
 function booqi_classic_nav_link_attributes( $atts, $item, $args ) {
 	if ( isset( $args->theme_location ) && 'primary' === $args->theme_location ) {
-		$classes = empty( $atts['class'] ) ? '' : $atts['class'] . ' ';
+		$classes       = empty( $atts['class'] ) ? '' : $atts['class'] . ' ';
 		$atts['class'] = trim( $classes . 'site-nav__link' );
 	}
 
@@ -70,7 +70,7 @@ function booqi_classic_nav_link_attributes( $atts, $item, $args ) {
 add_filter( 'nav_menu_link_attributes', 'booqi_classic_nav_link_attributes', 10, 3 );
 
 /**
- * Adds a body class for pages using the front page template.
+ * Adds contextual body classes.
  *
  * @param array $classes Existing body classes.
  * @return array
@@ -80,36 +80,112 @@ function booqi_classic_body_classes( $classes ) {
 		$classes[] = 'is-booqi-front-page';
 	}
 
+	if ( is_home() || is_archive() || is_singular( 'post' ) ) {
+		$classes[] = 'is-booqi-blog';
+	}
+
 	return $classes;
 }
 add_filter( 'body_class', 'booqi_classic_body_classes' );
 
 /**
+ * Gets the permalink for the first matching page slug, or a safe fallback URL.
+ *
+ * @param array|string $slugs         Candidate page slugs.
+ * @param string       $fallback_path Fallback path relative to the site root.
+ * @return string
+ */
+function booqi_classic_get_page_url( $slugs, $fallback_path = '/' ) {
+	$slugs = (array) $slugs;
+
+	foreach ( $slugs as $slug ) {
+		$page = get_page_by_path( $slug );
+
+		if ( $page instanceof WP_Post ) {
+			return get_permalink( $page );
+		}
+	}
+
+	return home_url( $fallback_path );
+}
+
+/**
+ * Gets the marketing blog archive URL.
+ *
+ * @return string
+ */
+function booqi_classic_get_blog_url() {
+	$page_for_posts = (int) get_option( 'page_for_posts' );
+
+	if ( $page_for_posts ) {
+		return get_permalink( $page_for_posts );
+	}
+
+	return booqi_classic_get_page_url( array( 'blog' ), '/blog' );
+}
+
+/**
+ * Determines whether the current view matches a set of fallback menu targets.
+ *
+ * @param array|string $matches Match rules.
+ * @return bool
+ */
+function booqi_classic_is_matching_view( $matches ) {
+	$matches = (array) $matches;
+
+	foreach ( $matches as $match ) {
+		switch ( $match ) {
+			case 'home':
+				if ( is_front_page() ) {
+					return true;
+				}
+				break;
+			case 'blog':
+				if ( is_home() || is_archive() || is_singular( 'post' ) || is_page( 'blog' ) ) {
+					return true;
+				}
+				break;
+			default:
+				if ( is_page( $match ) ) {
+					return true;
+				}
+		}
+	}
+
+	return false;
+}
+
+/**
  * Returns fallback items for the mirrored primary navigation.
  *
- * @return array<int, array<string, string>>
+ * @return array<int, array<string, mixed>>
  */
 function booqi_classic_get_primary_menu_items() {
 	return array(
 		array(
 			'label' => __( 'Features', 'booqi-classic' ),
-			'url'   => home_url( '/features' ),
+			'url'   => booqi_classic_get_page_url( array( 'features' ), '/features' ),
+			'match' => array( 'features' ),
 		),
 		array(
 			'label' => __( 'Industries', 'booqi-classic' ),
-			'url'   => home_url( '/industry' ),
+			'url'   => booqi_classic_get_page_url( array( 'industry' ), '/industry' ),
+			'match' => array( 'industry', 'theme-parks', 'theme-parks-and-recreational-facilities', 'zoos', 'museums', 'musea', 'swimming-pools' ),
 		),
 		array(
 			'label' => __( 'About Us', 'booqi-classic' ),
-			'url'   => home_url( '/about-us' ),
+			'url'   => booqi_classic_get_page_url( array( 'about-us' ), '/about-us' ),
+			'match' => array( 'about-us' ),
 		),
 		array(
 			'label' => __( 'Blog', 'booqi-classic' ),
-			'url'   => home_url( '/blog' ),
+			'url'   => booqi_classic_get_blog_url(),
+			'match' => array( 'blog' ),
 		),
 		array(
 			'label' => __( 'Contact', 'booqi-classic' ),
-			'url'   => home_url( '/contact' ),
+			'url'   => booqi_classic_get_page_url( array( 'contact' ), '/contact' ),
+			'match' => array( 'contact' ),
 		),
 	);
 }
@@ -117,29 +193,34 @@ function booqi_classic_get_primary_menu_items() {
 /**
  * Returns fallback items for the mirrored footer company links.
  *
- * @return array<int, array<string, string>>
+ * @return array<int, array<string, mixed>>
  */
 function booqi_classic_get_footer_company_menu_items() {
 	return array(
 		array(
 			'label' => __( 'Features', 'booqi-classic' ),
-			'url'   => home_url( '/features' ),
+			'url'   => booqi_classic_get_page_url( array( 'features' ), '/features' ),
+			'match' => array( 'features' ),
 		),
 		array(
 			'label' => __( 'Pricing', 'booqi-classic' ),
 			'url'   => home_url( '/#pricing' ),
+			'match' => array( 'home' ),
 		),
 		array(
-			'label' => __( 'FAQ', 'booqi-classic' ),
-			'url'   => home_url( '/#faq' ),
+			'label' => __( 'Industries', 'booqi-classic' ),
+			'url'   => booqi_classic_get_page_url( array( 'industry' ), '/industry' ),
+			'match' => array( 'industry', 'theme-parks', 'theme-parks-and-recreational-facilities', 'zoos', 'museums', 'musea', 'swimming-pools' ),
 		),
 		array(
 			'label' => __( 'About Us', 'booqi-classic' ),
-			'url'   => home_url( '/about-us' ),
+			'url'   => booqi_classic_get_page_url( array( 'about-us' ), '/about-us' ),
+			'match' => array( 'about-us' ),
 		),
 		array(
 			'label' => __( 'Blog', 'booqi-classic' ),
-			'url'   => home_url( '/blog' ),
+			'url'   => booqi_classic_get_blog_url(),
+			'match' => array( 'blog' ),
 		),
 	);
 }
@@ -147,7 +228,7 @@ function booqi_classic_get_footer_company_menu_items() {
 /**
  * Returns fallback items for the mirrored footer utility links.
  *
- * @return array<int, array<string, string>>
+ * @return array<int, array<string, mixed>>
  */
 function booqi_classic_get_footer_useful_menu_items() {
 	return array(
@@ -182,17 +263,37 @@ function booqi_classic_get_footer_useful_menu_items() {
 /**
  * Returns fallback items for the mirrored footer legal links.
  *
- * @return array<int, array<string, string>>
+ * @return array<int, array<string, mixed>>
  */
 function booqi_classic_get_footer_legal_menu_items() {
 	return array(
 		array(
 			'label' => __( 'Privacy & Cookie Policy', 'booqi-classic' ),
-			'url'   => home_url( '/privacy-cookie-policy' ),
+			'url'   => booqi_classic_get_page_url( array( 'privacy-cookie-policy' ), '/privacy-cookie-policy' ),
 		),
 		array(
 			'label' => __( 'General Terms & Conditions', 'booqi-classic' ),
-			'url'   => home_url( '/terms-and-conditions' ),
+			'url'   => booqi_classic_get_page_url( array( 'terms-and-conditions' ), '/terms-and-conditions' ),
+			'match' => array( 'terms-and-conditions' ),
+		),
+	);
+}
+
+/**
+ * Builds shared CTA actions for marketing sections.
+ *
+ * @return array<int, array<string, string>>
+ */
+function booqi_classic_get_primary_cta_actions() {
+	return array(
+		array(
+			'label' => __( 'Book a Demo', 'booqi-classic' ),
+			'url'   => booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ),
+		),
+		array(
+			'label' => __( 'Contact Sales', 'booqi-classic' ),
+			'url'   => booqi_classic_get_page_url( array( 'contact' ), '/contact' ),
+			'class' => 'button--ghost',
 		),
 	);
 }
@@ -212,10 +313,15 @@ function booqi_classic_render_fallback_menu( $menu_class, $items ) {
 	<ul class="<?php echo esc_attr( $menu_class ); ?>">
 		<?php foreach ( $items as $item ) : ?>
 			<?php
-			$target = empty( $item['target'] ) ? '' : $item['target'];
-			$rel    = $target ? 'noreferrer noopener' : '';
+			$target   = empty( $item['target'] ) ? '' : $item['target'];
+			$rel      = $target ? 'noreferrer noopener' : '';
+			$li_class = '';
+
+			if ( ! empty( $item['match'] ) && booqi_classic_is_matching_view( $item['match'] ) ) {
+				$li_class = ' class="current_page_item"';
+			}
 			?>
-			<li>
+			<li<?php echo $li_class; ?>>
 				<a href="<?php echo esc_url( $item['url'] ); ?>"<?php echo $target ? ' target="' . esc_attr( $target ) . '" rel="' . esc_attr( $rel ) . '"' : ''; ?>>
 					<?php echo esc_html( $item['label'] ); ?>
 				</a>
