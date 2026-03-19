@@ -50,7 +50,7 @@
 					);
 					?>
 					<div class="site-nav__actions">
-						<a class="button button--small" href="<?php echo esc_url( home_url( '/book-demo' ) ); ?>"><?php esc_html_e( 'Book a Demo', 'booqi-classic' ); ?></a>
+						<a class="button button--small" href="<?php echo esc_url( booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ) ); ?>"><?php esc_html_e( 'Book a Demo', 'booqi-classic' ); ?></a>
 					</div>
 				</nav>
 			</div>
