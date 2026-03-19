@@ -181,192 +181,219 @@ $faqs = array(
 
 get_header();
 ?>
-<section class="hero section">
-	<div class="container hero-shell">
-		<div class="hero-copy hero-copy-centered">
-			<h1><?php esc_html_e('Enhance your ticketing experience', 'booqi-classic'); ?></h1>
-			<p class="hero-lead"><?php esc_html_e('Booqi.me offers the most feature rich ticketing platform to organisations in the leisure industry. Find out why numerous locations choose us to arrange their entrance for them.', 'booqi-classic'); ?></p>
-			<div class="hero-actions hero-actions-centered">
-				<a class="button" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request demo', 'booqi-classic'); ?></a>
-			</div>
-		</div>
-		<div class="hero-visual" aria-hidden="true">
-			<div class="hero-visual-backdrop">
-				<span class="hero-backdrop-ring hero-backdrop-ring-large"></span>
-				<span class="hero-backdrop-ring hero-backdrop-ring-medium"></span>
-				<span class="hero-backdrop-ring hero-backdrop-ring-small"></span>
-			</div>
-			<div class="hero-composition">
-				<div class="hero-grid-overlay"></div>
-				<figure class="hero-product-shot">
-					<img src="<?php echo esc_url($theme_uri . '/assets/images/hero-product-graphic.svg'); ?>" alt="">
-				</figure>
-				<div class="hero-float-card hero-float-card-revenue">
-					<div class="hero-float-card-shimmer"></div>
-					<p><?php esc_html_e('Revenue', 'booqi-classic'); ?></p>
-					<strong>€24.5K</strong>
-					<span>+18%</span>
-				</div>
-				<div class="hero-float-card hero-float-card-sales">
-					<div class="hero-float-card-shimmer"></div>
-					<p><?php esc_html_e('Sales Today', 'booqi-classic'); ?></p>
-					<ul>
-						<li><?php esc_html_e('Tickets', 'booqi-classic'); ?></li>
-						<li><?php esc_html_e('Subscriptions', 'booqi-classic'); ?></li>
-						<li><?php esc_html_e('Upsells', 'booqi-classic'); ?></li>
-						<li><?php esc_html_e('Vouchers', 'booqi-classic'); ?></li>
-					</ul>
-				</div>
-				<div class="hero-float-card hero-float-card-visitors">
-					<div class="hero-float-card-shimmer"></div>
-					<p><?php esc_html_e('Visitors', 'booqi-classic'); ?></p>
-					<strong>1,284</strong>
-					<small><?php esc_html_e('Check-ins', 'booqi-classic'); ?></small>
+<main class="homepage-main">
+	<section class="hero section">
+		<div class="container hero-shell">
+			<div class="hero-copy hero-copy-centered">
+				<h1><?php esc_html_e('Enhance your ticketing experience', 'booqi-classic'); ?></h1>
+				<p class="hero-lead"><?php esc_html_e('Booqi.me offers the most feature rich ticketing platform to organisations in the leisure industry. Find out why numerous locations choose us to arrange their entrance for them.', 'booqi-classic'); ?></p>
+				<div class="hero-actions hero-actions-centered">
+					<a class="button" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request demo', 'booqi-classic'); ?></a>
 				</div>
 			</div>
-		</div>
-	</div>
-</section>
-
-<section class="logo-strip section" aria-label="<?php esc_attr_e('Client logos', 'booqi-classic'); ?>">
-	<div class="container logo-strip-shell">
-		<p class="logo-strip-label"><?php esc_html_e('Used by the world’s most incredible teams:', 'booqi-classic'); ?></p>
-		<div class="logo-strip-marquee">
-			<ul class="logo-strip-track" role="list">
-				<?php foreach ($client_logos as $logo) : ?>
-					<li class="logo-mark <?php echo esc_attr($logo['class']); ?>">
-						<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $logo['file']); ?>" alt="<?php echo esc_attr($logo['name']); ?>">
-					</li>
-				<?php endforeach; ?>
-				<?php foreach ($client_logos as $logo) : ?>
-					<li class="logo-mark <?php echo esc_attr($logo['class']); ?>" aria-hidden="true">
-						<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $logo['file']); ?>" alt="">
-					</li>
-				<?php endforeach; ?>
-			</ul>
-		</div>
-	</div>
-</section>
-
-<section id="features" class="section section-soft section-features">
-	<div class="container section-heading section-heading-centered">
-		<p class="eyebrow"><?php esc_html_e('Features', 'booqi-classic'); ?></p>
-		<h2><?php esc_html_e('We have got what it takes!', 'booqi-classic'); ?></h2>
-		<p><?php esc_html_e('We provide an easy platform for your visitors. While giving you the possibility to manage and control with just a mouse click.', 'booqi-classic'); ?></p>
-	</div>
-	<div class="container feature-grid">
-		<?php foreach ($feature_cards as $feature) : ?>
-			<article class="feature-card">
-				<p class="feature-number"><?php echo esc_html($feature['number']); ?></p>
-				<p><?php echo esc_html($feature['text']); ?></p>
-			</article>
-		<?php endforeach; ?>
-	</div>
-	<div class="container section-actions section-actions-centered">
-		<a class="button button-secondary" href="<?php echo esc_url(home_url('/features/')); ?>"><?php esc_html_e('See all our features', 'booqi-classic'); ?></a>
-	</div>
-</section>
-
-<section id="industries" class="section section-industries">
-	<div class="container section-heading section-heading-centered">
-		<p class="eyebrow"><?php esc_html_e('Industries', 'booqi-classic'); ?></p>
-		<h2><?php esc_html_e('The right solution for your business needs', 'booqi-classic'); ?></h2>
-		<p><?php esc_html_e('Focus on your sales and managing your customers and let us do the rest.', 'booqi-classic'); ?></p>
-	</div>
-	<div class="container industry-grid">
-		<?php foreach ($industry_cards as $industry) : ?>
-			<article class="industry-card">
-				<a class="industry-card-link-wrap" href="<?php echo esc_url($industry['link']); ?>">
-					<div class="industry-card-body">
-						<p class="industry-card-kicker"><?php esc_html_e('Industries', 'booqi-classic'); ?></p>
-						<h3><?php echo esc_html($industry['title']); ?></h3>
-						<span class="industry-card-link"><?php esc_html_e('Explore industry', 'booqi-classic'); ?></span>
-					</div>
-					<figure class="industry-card-media">
-						<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $industry['image']); ?>" alt="<?php echo esc_attr($industry['title']); ?>">
+			<div class="hero-visual" aria-hidden="true">
+				<div class="hero-visual-backdrop">
+					<span class="hero-backdrop-ring hero-backdrop-ring-large"></span>
+					<span class="hero-backdrop-ring hero-backdrop-ring-medium"></span>
+					<span class="hero-backdrop-ring hero-backdrop-ring-small"></span>
+				</div>
+				<div class="hero-composition">
+					<div class="hero-grid-overlay"></div>
+					<figure class="hero-product-shot">
+						<img src="<?php echo esc_url($theme_uri . '/assets/images/hero-product-graphic.svg'); ?>" alt="">
 					</figure>
-				</a>
-			</article>
-		<?php endforeach; ?>
-	</div>
-</section>
-
-<section class="section section-proof">
-	<div class="container proof-shell">
-		<div class="proof-intro">
-			<div class="section-heading proof-heading">
-				<p class="eyebrow"><?php esc_html_e('Why Booqi.me', 'booqi-classic'); ?></p>
-				<h2><?php esc_html_e('Focus on your sales and managing your customers and let us do the rest:', 'booqi-classic'); ?></h2>
-			</div>
-			<div class="proof-spotlight">
-				<p><?php esc_html_e('Enhance every aspect of your business sales, ensuring satisfaction, loyalty, and unparalleled service. Thanks to AI of course.', 'booqi-classic'); ?></p>
-				<a class="button" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request demo', 'booqi-classic'); ?></a>
+					<div class="hero-float-card hero-float-card-revenue">
+						<div class="hero-float-card-shimmer"></div>
+						<p><?php esc_html_e('Revenue', 'booqi-classic'); ?></p>
+						<strong>€24.5K</strong>
+						<span>+18%</span>
+					</div>
+					<div class="hero-float-card hero-float-card-sales">
+						<div class="hero-float-card-shimmer"></div>
+						<p><?php esc_html_e('Sales Today', 'booqi-classic'); ?></p>
+						<ul>
+							<li><?php esc_html_e('Tickets', 'booqi-classic'); ?></li>
+							<li><?php esc_html_e('Subscriptions', 'booqi-classic'); ?></li>
+							<li><?php esc_html_e('Upsells', 'booqi-classic'); ?></li>
+							<li><?php esc_html_e('Vouchers', 'booqi-classic'); ?></li>
+						</ul>
+					</div>
+					<div class="hero-float-card hero-float-card-visitors">
+						<div class="hero-float-card-shimmer"></div>
+						<p><?php esc_html_e('Visitors', 'booqi-classic'); ?></p>
+						<strong>1,284</strong>
+						<small><?php esc_html_e('Check-ins', 'booqi-classic'); ?></small>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="benefit-grid">
-			<?php foreach ($benefit_cards as $benefit) : ?>
-				<article class="benefit-card">
-					<h3><?php echo esc_html($benefit['title']); ?></h3>
-					<p><?php echo esc_html($benefit['text']); ?></p>
+	</section>
+
+	<section class="logo-strip section" aria-label="<?php esc_attr_e('Client logos', 'booqi-classic'); ?>">
+		<div class="container logo-strip-shell">
+			<p class="logo-strip-label"><?php esc_html_e('Used by the world’s most incredible teams:', 'booqi-classic'); ?></p>
+			<div class="logo-strip-marquee">
+				<ul class="logo-strip-track" role="list">
+					<?php foreach ($client_logos as $logo) : ?>
+						<li class="logo-mark <?php echo esc_attr($logo['class']); ?>">
+							<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $logo['file']); ?>" alt="<?php echo esc_attr($logo['name']); ?>">
+						</li>
+					<?php endforeach; ?>
+					<?php foreach ($client_logos as $logo) : ?>
+						<li class="logo-mark <?php echo esc_attr($logo['class']); ?>" aria-hidden="true">
+							<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $logo['file']); ?>" alt="">
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+	<section id="features" class="section section-features">
+		<header class="container section-heading section-heading-centered section-heading-on-light">
+			<p class="eyebrow"><?php esc_html_e('Features', 'booqi-classic'); ?></p>
+			<h2><?php esc_html_e('We have got what it takes!', 'booqi-classic'); ?></h2>
+			<p><?php esc_html_e('We provide an easy platform for your visitors, while giving you the possibility to manage and control with just a mouse click.', 'booqi-classic'); ?></p>
+		</header>
+		<div class="container feature-showcase card-shell-light">
+			<div class="feature-showcase-visual" aria-hidden="true">
+				<div class="feature-showcase-screen">
+					<figure class="feature-showcase-image">
+						<img src="<?php echo esc_url($theme_uri . '/assets/images/hero-illustration.svg'); ?>" alt="">
+					</figure>
+					<div class="feature-showcase-badge">
+						<strong><?php esc_html_e('Booqi shop', 'booqi-classic'); ?></strong>
+						<span><?php esc_html_e('Subscriptions, vouchers, upsells, and dynamic pricing in one flow.', 'booqi-classic'); ?></span>
+					</div>
+				</div>
+			</div>
+			<div class="feature-showcase-copy">
+				<ol class="feature-list" role="list">
+					<?php foreach ($feature_cards as $index => $feature) : ?>
+						<li class="feature-card<?php echo 0 === $index ? ' is-active' : ''; ?>">
+							<p class="feature-number"><?php echo esc_html($feature['number']); ?></p>
+							<p><?php echo esc_html($feature['text']); ?></p>
+						</li>
+					<?php endforeach; ?>
+				</ol>
+				<div class="section-actions">
+					<a class="button" href="<?php echo esc_url(home_url('/features/')); ?>"><?php esc_html_e('See all our features', 'booqi-classic'); ?></a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="industries" class="section section-industries">
+		<header class="container section-heading section-heading-centered section-heading-on-light">
+			<p class="eyebrow"><?php esc_html_e('Industries', 'booqi-classic'); ?></p>
+			<h2><?php esc_html_e('The right solution for your business needs', 'booqi-classic'); ?></h2>
+			<p><?php esc_html_e('Focus on your sales and managing your customers and let us do the rest.', 'booqi-classic'); ?></p>
+		</header>
+		<div class="container industry-grid">
+			<?php foreach ($industry_cards as $industry) : ?>
+				<article class="industry-card">
+					<a class="industry-card-link-wrap" href="<?php echo esc_url($industry['link']); ?>">
+						<div class="industry-card-body">
+							<p class="industry-card-kicker"><?php esc_html_e('Industries', 'booqi-classic'); ?></p>
+							<h3><?php echo esc_html($industry['title']); ?></h3>
+							<span class="industry-card-link"><?php esc_html_e('Explore industry', 'booqi-classic'); ?></span>
+						</div>
+						<figure class="industry-card-media">
+							<img src="<?php echo esc_url($theme_uri . '/assets/images/' . $industry['image']); ?>" alt="<?php echo esc_attr($industry['title']); ?>">
+						</figure>
+					</a>
 				</article>
 			<?php endforeach; ?>
 		</div>
-	</div>
-</section>
+	</section>
 
-<section id="pricing" class="section section-soft section-pricing">
-	<div class="container section-heading section-heading-centered">
-		<p class="eyebrow"><?php esc_html_e('Pricing', 'booqi-classic'); ?></p>
-		<h2><?php esc_html_e('What we offer', 'booqi-classic'); ?></h2>
-		<p><?php esc_html_e('Sell your tickets online and offline!', 'booqi-classic'); ?></p>
-	</div>
-	<div class="container pricing-grid">
-		<?php foreach ($pricing_cards as $card) : ?>
-			<article class="price-card<?php echo esc_attr($card['class']); ?>">
-				<div class="price-card-header">
-					<?php if (! empty($card['badge'])) : ?>
-						<p class="price-badge"><?php echo esc_html($card['badge']); ?></p>
-					<?php endif; ?>
-					<h3><?php echo esc_html($card['name']); ?></h3>
-					<p class="price"><?php echo esc_html($card['price']); ?></p>
+	<section class="section section-proof">
+		<div class="container proof-shell">
+			<div class="proof-intro">
+				<header class="section-heading proof-heading">
+					<p class="eyebrow"><?php esc_html_e('Why Booqi.me', 'booqi-classic'); ?></p>
+					<h2><?php esc_html_e('Focus on your sales and managing your customers and let us do the rest:', 'booqi-classic'); ?></h2>
+				</header>
+				<aside class="proof-spotlight">
+					<p><?php esc_html_e('Enhance every aspect of your business sales, ensuring satisfaction, loyalty, and unparalleled service. Thanks to AI of course.', 'booqi-classic'); ?></p>
+					<a class="button" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request demo', 'booqi-classic'); ?></a>
+				</aside>
+			</div>
+			<div class="proof-platform card-shell">
+				<div class="proof-platform-copy">
+					<p class="badge"><?php esc_html_e('Platform overview', 'booqi-classic'); ?></p>
+					<h3><?php esc_html_e('A modern ticketing workspace shaped around Booqi’s leisure operations.', 'booqi-classic'); ?></h3>
+					<p><?php esc_html_e('The original template centres a single product canvas. The Booqi homepage turns that pattern into a ticketing dashboard story that highlights online sales, check-ins, year passes, and revenue visibility.', 'booqi-classic'); ?></p>
 				</div>
-				<div class="price-card-body">
-					<p class="price-subtitle"><?php echo esc_html($card['subtitle']); ?></p>
-					<ul>
-						<?php foreach ($card['items'] as $item) : ?>
-							<li><?php echo esc_html($item); ?></li>
-						<?php endforeach; ?>
-					</ul>
-				</div>
-				<a class="button<?php echo $card['class'] ? ' button-light' : ' button-secondary'; ?>" href="<?php echo esc_url($card['link']); ?>"><?php echo esc_html($card['button']); ?></a>
-			</article>
-		<?php endforeach; ?>
-	</div>
-</section>
-
-<section id="faq" class="section section-faq">
-	<div class="container section-heading section-heading-centered">
-		<p class="eyebrow"><?php esc_html_e('FAQ', 'booqi-classic'); ?></p>
-		<h2><?php esc_html_e('We have all the answers', 'booqi-classic'); ?></h2>
-	</div>
-	<div class="container faq-list">
-		<?php foreach ($faqs as $faq) : ?>
-			<details class="faq-item"<?php echo $faq['open'] ? ' open' : ''; ?>>
-				<summary><?php echo esc_html($faq['question']); ?></summary>
-				<p><?php echo esc_html($faq['answer']); ?></p>
-			</details>
-		<?php endforeach; ?>
-	</div>
-</section>
-
-<section class="section section-cta-wrap">
-	<div class="container cta cta-centered">
-		<div>
-			<h2><?php esc_html_e('Take the Next Step with Booqi.me', 'booqi-classic'); ?></h2>
-			<p><?php esc_html_e('Ready to transform your ticket sales? Request a demo today and discover how Booqi.me can elevate your business.', 'booqi-classic'); ?></p>
+				<figure class="proof-platform-visual" aria-hidden="true">
+					<img src="<?php echo esc_url($theme_uri . '/assets/images/hero-product-graphic.svg'); ?>" alt="">
+				</figure>
+			</div>
+			<div class="benefit-grid">
+				<?php foreach ($benefit_cards as $benefit) : ?>
+					<article class="benefit-card">
+						<h3><?php echo esc_html($benefit['title']); ?></h3>
+						<p><?php echo esc_html($benefit['text']); ?></p>
+					</article>
+				<?php endforeach; ?>
+			</div>
 		</div>
-		<a class="button button-light" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request demo', 'booqi-classic'); ?></a>
-	</div>
-</section>
+	</section>
+
+	<section id="pricing" class="section section-soft section-pricing">
+		<header class="container section-heading section-heading-centered">
+			<p class="eyebrow"><?php esc_html_e('Pricing', 'booqi-classic'); ?></p>
+			<h2><?php esc_html_e('What we offer', 'booqi-classic'); ?></h2>
+			<p><?php esc_html_e('Sell your tickets online and offline!', 'booqi-classic'); ?></p>
+		</header>
+		<div class="container pricing-grid">
+			<?php foreach ($pricing_cards as $card) : ?>
+				<article class="price-card<?php echo esc_attr($card['class']); ?>">
+					<div class="price-card-header">
+						<?php if (! empty($card['badge'])) : ?>
+							<p class="price-badge"><?php echo esc_html($card['badge']); ?></p>
+						<?php endif; ?>
+						<h3><?php echo esc_html($card['name']); ?></h3>
+						<p class="price"><?php echo esc_html($card['price']); ?></p>
+					</div>
+					<div class="price-card-body">
+						<p class="price-subtitle"><?php echo esc_html($card['subtitle']); ?></p>
+						<ul role="list">
+							<?php foreach ($card['items'] as $item) : ?>
+								<li><?php echo esc_html($item); ?></li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+					<a class="button<?php echo $card['class'] ? ' button-light' : ' button-secondary'; ?>" href="<?php echo esc_url($card['link']); ?>"><?php echo esc_html($card['button']); ?></a>
+				</article>
+			<?php endforeach; ?>
+		</div>
+	</section>
+
+	<section id="faq" class="section section-faq">
+		<header class="container section-heading section-heading-centered">
+			<p class="eyebrow"><?php esc_html_e('FAQ', 'booqi-classic'); ?></p>
+			<h2><?php esc_html_e('We have all the answers', 'booqi-classic'); ?></h2>
+		</header>
+		<div class="container faq-list">
+			<?php foreach ($faqs as $faq) : ?>
+				<details class="faq-item"<?php echo $faq['open'] ? ' open' : ''; ?>>
+					<summary><?php echo esc_html($faq['question']); ?></summary>
+					<p><?php echo esc_html($faq['answer']); ?></p>
+				</details>
+			<?php endforeach; ?>
+		</div>
+	</section>
+
+	<section class="section section-cta-wrap">
+		<div class="container cta cta-centered">
+			<div>
+				<h2><?php esc_html_e('Take the Next Step with Booqi.me', 'booqi-classic'); ?></h2>
+				<p><?php esc_html_e('Ready to transform your ticket sales? Request a demo today and discover how Booqi.me can elevate your business.', 'booqi-classic'); ?></p>
+			</div>
+			<a class="button button-light" href="<?php echo esc_url(home_url('/book-demo/')); ?>"><?php esc_html_e('Request demo', 'booqi-classic'); ?></a>
+		</div>
+	</section>
+</main>
 <?php
 get_footer();
