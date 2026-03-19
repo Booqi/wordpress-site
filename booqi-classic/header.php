@@ -13,6 +13,30 @@
 </head>
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
+<?php
+$booqi_header_links = array(
+	array(
+		'label' => __( 'Features', 'booqi-classic' ),
+		'url'   => home_url( '/features' ),
+	),
+	array(
+		'label' => __( 'Industries', 'booqi-classic' ),
+		'url'   => home_url( '/industry' ),
+	),
+	array(
+		'label' => __( 'About us', 'booqi-classic' ),
+		'url'   => home_url( '/about-us' ),
+	),
+	array(
+		'label' => __( 'Blog', 'booqi-classic' ),
+		'url'   => home_url( '/blog' ),
+	),
+	array(
+		'label' => __( 'Contact', 'booqi-classic' ),
+		'url'   => home_url( '/contact' ),
+	),
+);
+?>
 <a class="screen-reader-text skip-link" href="#main-content"><?php esc_html_e( 'Skip to content', 'booqi-classic' ); ?></a>
 <div class="site-shell">
 	<header class="site-header">
@@ -24,12 +48,11 @@
 							<?php if ( has_custom_logo() ) : ?>
 								<?php echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( 'class' => 'site-branding__logo-image' ) ); ?>
 							<?php else : ?>
-								<span class="site-branding__glyph">B</span>
+								<span class="site-branding__glyph"></span>
 							<?php endif; ?>
 						</span>
-						<span class="site-branding__wordmark">
-							<span class="site-branding__eyebrow"><?php esc_html_e( 'Visitor experience platform', 'booqi-classic' ); ?></span>
-							<span class="site-branding__title"><?php bloginfo( 'name' ); ?></span>
+						<span class="site-branding__wordmark site-branding__wordmark--logo">
+							<span class="site-branding__title">Booqi.me</span>
 						</span>
 					</a>
 				</div>
@@ -40,19 +63,17 @@
 				</button>
 
 				<nav id="site-navigation" class="site-nav" aria-label="<?php esc_attr_e( 'Primary menu', 'booqi-classic' ); ?>">
-					<?php
-					wp_nav_menu(
-						array(
-							'theme_location' => 'primary',
-							'container'      => false,
-							'menu_class'     => 'site-nav__list',
-							'fallback_cb'    => 'booqi_classic_primary_menu_fallback',
-						)
-					);
-					?>
+					<ul class="site-nav__list">
+						<?php foreach ( $booqi_header_links as $booqi_header_link ) : ?>
+							<li>
+								<a class="site-nav__link" href="<?php echo esc_url( $booqi_header_link['url'] ); ?>">
+									<?php echo esc_html( $booqi_header_link['label'] ); ?>
+								</a>
+							</li>
+						<?php endforeach; ?>
+					</ul>
 					<div class="site-nav__actions">
-						<a class="site-nav__secondary" href="<?php echo esc_url( home_url( '/contact' ) ); ?>"><?php esc_html_e( 'Talk to sales', 'booqi-classic' ); ?></a>
-						<a class="button button--small" href="<?php echo esc_url( home_url( '/book-demo' ) ); ?>"><?php esc_html_e( 'Book a demo', 'booqi-classic' ); ?></a>
+						<a class="button button--small" href="<?php echo esc_url( home_url( '/book-demo' ) ); ?>"><?php esc_html_e( 'Request Demo', 'booqi-classic' ); ?></a>
 					</div>
 				</nav>
 			</div>
