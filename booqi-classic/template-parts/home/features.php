@@ -11,7 +11,7 @@ $items = $args['items'] ?? array();
 	<div class="site-container homepage-features-spotlight__grid">
 		<div class="homepage-features-spotlight__media content-card">
 			<div class="homepage-features-spotlight__canvas">
-				<div class="homepage-features-spotlight__window"></div>
+				<img class="homepage-features-spotlight__image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'homepage/feature-platform-overview.svg' ) ); ?>" alt="<?php esc_attr_e( 'Feature overview illustration showing product modules and pricing cards.', 'booqi-classic' ); ?>">
 				<div class="homepage-features-spotlight__panel homepage-features-spotlight__panel--primary">
 					<strong><?php esc_html_e( 'Online + onsite sales', 'booqi-classic' ); ?></strong>
 					<span><?php esc_html_e( 'Tickets, passes, hardware, and integrations together.', 'booqi-classic' ); ?></span>

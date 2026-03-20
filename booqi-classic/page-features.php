@@ -94,6 +94,9 @@ get_header();
 			</div>
 			<div class="surface-panel hero-panel marketing-hero__panel">
 				<div class="hero-panel__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+				<div class="hero-panel__body marketing-hero__visual-shell">
+					<img class="marketing-hero__image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'pages/features-hero-platform.svg' ) ); ?>" alt="<?php esc_attr_e( 'Platform illustration showing dashboards, integrations, and pricing cards.', 'booqi-classic' ); ?>">
+				</div>
 				<div class="hero-panel__body marketing-capability-stack">
 					<?php foreach ( $capability_groups as $group ) : ?>
 						<section class="stat-card marketing-capability-card">

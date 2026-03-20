@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-labelledby="title desc">
+<title id="title">Booqi dashboard preview</title><desc id="desc">Ticketing dashboard illustration with charts, live metrics, and revenue cards.</desc>
+<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#08111b"/><stop offset="100%" stop-color="#0f2430"/></linearGradient><linearGradient id="a" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#5cf0ca"/><stop offset="100%" stop-color="#1f7c69"/></linearGradient></defs>
+<rect width="800" height="520" rx="34" fill="#071016"/>
+<rect x="36" y="48" width="728" height="420" rx="28" fill="url(#bg)" stroke="#1a3441"/>
+<rect x="36" y="48" width="728" height="58" rx="28" fill="#0a1722"/>
+<circle cx="76" cy="77" r="8" fill="#ff7f73"/><circle cx="104" cy="77" r="8" fill="#ffd26f"/><circle cx="132" cy="77" r="8" fill="#5cf0ca"/>
+<rect x="70" y="144" width="176" height="268" rx="24" fill="#0c1b27" stroke="#19323d"/>
+<rect x="274" y="144" width="220" height="148" rx="24" fill="#0b1b27" stroke="#19323d"/>
+<rect x="520" y="144" width="208" height="148" rx="24" fill="#0b1b27" stroke="#19323d"/>
+<rect x="274" y="316" width="454" height="96" rx="24" fill="#0b1b27" stroke="#19323d"/>
+<text x="90" y="178" fill="#f6fbf9" font-size="16" font-family="Inter, Arial, sans-serif" font-weight="700">Revenue overview</text>
+<g transform="translate(98 208)"><rect width="120" height="12" rx="6" fill="#18323c"/><rect y="30" width="84" height="12" rx="6" fill="#18323c"/><rect y="78" width="24" height="110" rx="12" fill="url(#a)"/><rect x="34" y="48" width="24" height="140" rx="12" fill="url(#a)" opacity=".85"/><rect x="68" y="62" width="24" height="126" rx="12" fill="url(#a)" opacity=".78"/></g>
+<text x="294" y="178" fill="#f6fbf9" font-size="16" font-family="Inter, Arial, sans-serif" font-weight="700">Live check-ins</text>
+<circle cx="384" cy="228" r="48" fill="none" stroke="#17313b" stroke-width="24"/><circle cx="384" cy="228" r="48" fill="none" stroke="#5cf0ca" stroke-width="24" stroke-linecap="round" stroke-dasharray="215 86" transform="rotate(-90 384 228)"/>
+<text x="351" y="235" fill="#f6fbf9" font-size="28" font-family="Inter, Arial, sans-serif" font-weight="700">74%</text>
+<text x="540" y="178" fill="#f6fbf9" font-size="16" font-family="Inter, Arial, sans-serif" font-weight="700">Top products</text>
+<g fill="#18323c"><rect x="540" y="200" width="120" height="12" rx="6"/><rect x="540" y="230" width="168" height="12" rx="6"/><rect x="540" y="260" width="138" height="12" rx="6"/></g>
+<rect x="300" y="340" width="144" height="48" rx="18" fill="#102733"/>
+<rect x="462" y="340" width="112" height="48" rx="18" fill="#102733"/>
+<rect x="592" y="340" width="112" height="48" rx="18" fill="#102733"/>
+<text x="322" y="369" fill="#5cf0ca" font-size="18" font-family="Inter, Arial, sans-serif" font-weight="700">€12,480</text>
+<text x="482" y="369" fill="#f6fbf9" font-size="18" font-family="Inter, Arial, sans-serif" font-weight="700">184 orders</text>
+<text x="612" y="369" fill="#f6fbf9" font-size="18" font-family="Inter, Arial, sans-serif" font-weight="700">742 scans</text>
+</svg>
