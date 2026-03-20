@@ -41,14 +41,38 @@ $hero_stats = array(
 );
 
 $client_logos = array(
-	'Walibi Holland',
-	'DierenPark Amersfoort',
-	'BillyBird',
-	'Autoworld',
-	'Plopsa',
-	'Dierenrijk',
-	'Slagharen',
-	'Attractiepark Toverland',
+	array(
+		'name' => 'Walibi Holland',
+		'src'  => booqi_classic_get_image_uri( 'logos/logo-walibi-holland.svg' ),
+	),
+	array(
+		'name' => 'DierenPark Amersfoort',
+		'src'  => booqi_classic_get_image_uri( 'logos/logo-dierenpark-amersfoort.svg' ),
+	),
+	array(
+		'name' => 'BillyBird',
+		'src'  => booqi_classic_get_image_uri( 'logos/logo-billybird.svg' ),
+	),
+	array(
+		'name' => 'Autoworld',
+		'src'  => booqi_classic_get_image_uri( 'logos/logo-autoworld.svg' ),
+	),
+	array(
+		'name' => 'Plopsa',
+		'src'  => booqi_classic_get_image_uri( 'logos/logo-plopsa.svg' ),
+	),
+	array(
+		'name' => 'Dierenrijk',
+		'src'  => booqi_classic_get_image_uri( 'logos/logo-dierenrijk.svg' ),
+	),
+	array(
+		'name' => 'Slagharen',
+		'src'  => booqi_classic_get_image_uri( 'logos/logo-slagharen.svg' ),
+	),
+	array(
+		'name' => 'Attractiepark Toverland',
+		'src'  => booqi_classic_get_image_uri( 'logos/logo-toverland.svg' ),
+	),
 );
 
 $feature_spotlight_items = array(
@@ -76,24 +100,28 @@ $industry_cards = array(
 		'description' => __( 'Keep every gate, upsell, and season-pass moment connected in one ticketing flow.', 'booqi-classic' ),
 		'url'         => booqi_classic_get_page_url( array( 'theme-parks', 'theme-parks-and-recreational-facilities' ), '/theme-parks' ),
 		'accent'      => 'theme-park',
+		'image_src'   => booqi_classic_get_image_uri( 'homepage/industry-theme-parks.svg' ),
 	),
 	array(
 		'title'       => __( 'Zoo\'s', 'booqi-classic' ),
 		'description' => __( 'Handle day tickets, member access, and flexible visitor planning for animal parks.', 'booqi-classic' ),
 		'url'         => home_url( '/zoos' ),
 		'accent'      => 'zoo',
+		'image_src'   => booqi_classic_get_image_uri( 'homepage/industry-zoos.svg' ),
 	),
 	array(
 		'title'       => __( 'Musea', 'booqi-classic' ),
 		'description' => __( 'Launch exhibitions, timed entry, and cultural events with clear visitor control.', 'booqi-classic' ),
 		'url'         => booqi_classic_get_page_url( array( 'museums', 'musea' ), '/museums' ),
 		'accent'      => 'museum',
+		'image_src'   => booqi_classic_get_image_uri( 'homepage/industry-museums.svg' ),
 	),
 	array(
 		'title'       => __( 'Swimming Pools', 'booqi-classic' ),
 		'description' => __( 'Balance busy swim sessions, lessons, and recurring bookings from one dashboard.', 'booqi-classic' ),
 		'url'         => home_url( '/swimming-pools' ),
 		'accent'      => 'pool',
+		'image_src'   => booqi_classic_get_image_uri( 'homepage/industry-swimming-pools.svg' ),
 	),
 );
 
@@ -101,18 +129,22 @@ $proof_cards = array(
 	array(
 		'title'       => __( 'Rigid cloud infrastructure', 'booqi-classic' ),
 		'description' => __( 'Your data is securely stored in datacenters in the Netherlands and Germany. Our server architecture has resulted in at least 99.9% uptime over the last months.', 'booqi-classic' ),
+		'image_src'   => booqi_classic_get_image_uri( 'homepage/proof-cloud-infrastructure.svg' ),
 	),
 	array(
 		'title'       => __( 'Continuous improvement', 'booqi-classic' ),
 		'description' => __( 'Our software solution is always evolving. We strive to give you the tools needed to quickly adapt to changes in the market.', 'booqi-classic' ),
+		'image_src'   => booqi_classic_get_image_uri( 'homepage/proof-continuous-improvement.svg' ),
 	),
 	array(
 		'title'       => __( 'Easy to use Dashboard', 'booqi-classic' ),
 		'description' => __( 'With our software, you have full control over your sales offers. Decide for yourself which products you want to offer and customise your range entirely according to your wishes.', 'booqi-classic' ),
+		'image_src'   => booqi_classic_get_image_uri( 'homepage/proof-dashboard-control.svg' ),
 	),
 	array(
 		'title'       => __( 'Onboarding, training and support', 'booqi-classic' ),
 		'description' => __( 'Our team is ready! Our support desk is available seven days a week to assist you with any inquiries or issues you may encounter. Additionally, we provide a comprehensive support library filled with self-help articles for your convenience.', 'booqi-classic' ),
+		'image_src'   => booqi_classic_get_image_uri( 'homepage/proof-support-training.svg' ),
 	),
 );
 

@@ -39,17 +39,12 @@ $cards = $args['cards'] ?? array();
 				<a class="button" href="<?php echo esc_url( booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ) ); ?>"><?php esc_html_e( 'Request demo', 'booqi-classic' ); ?></a>
 			</div>
 			<div class="homepage-proof__spotlight-visual" aria-hidden="true">
-				<div class="homepage-proof__spotlight-orbit homepage-proof__spotlight-orbit--one"></div>
-				<div class="homepage-proof__spotlight-orbit homepage-proof__spotlight-orbit--two"></div>
-				<div class="homepage-proof__spotlight-core"></div>
-				<div class="homepage-proof__spotlight-mini homepage-proof__spotlight-mini--a"></div>
-				<div class="homepage-proof__spotlight-mini homepage-proof__spotlight-mini--b"></div>
-				<div class="homepage-proof__spotlight-mini homepage-proof__spotlight-mini--c"></div>
+				<img class="homepage-proof__spotlight-image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-mark-pattern.svg' ) ); ?>" alt="">
 			</div>
 		</div>
 		<div class="homepage-proof__grid">
 			<?php foreach ( $cards as $card ) : ?>
-				<?php get_template_part( 'template-parts/components/stat-card', null, array( 'card_class' => 'homepage-proof__card', 'title' => $card['title'], 'text' => $card['description'] ) ); ?>
+				<?php get_template_part( 'template-parts/components/stat-card', null, array( 'card_class' => 'homepage-proof__card', 'title' => $card['title'], 'text' => $card['description'], 'image_src' => $card['image_src'], 'image_alt' => $card['title'] ) ); ?>
 			<?php endforeach; ?>
 		</div>
 	</div>

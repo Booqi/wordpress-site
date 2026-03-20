@@ -21,6 +21,8 @@ $defaults = array(
 	'workflow_steps'    => array(),
 	'cta_title'         => '',
 	'cta_description'   => '',
+	'hero_image'        => '',
+	'hero_image_alt'    => '',
 );
 
 $args = wp_parse_args( $args ?? array(), $defaults );
@@ -52,6 +54,11 @@ $args = wp_parse_args( $args ?? array(), $defaults );
 			</div>
 			<div class="marketing-hero__panel surface-panel hero-panel marketing-hero__panel">
 				<div class="hero-panel__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+				<?php if ( $args['hero_image'] ) : ?>
+					<div class="hero-panel__body marketing-hero__visual-shell">
+						<img class="marketing-hero__image" src="<?php echo esc_url( $args['hero_image'] ); ?>" alt="<?php echo esc_attr( $args['hero_image_alt'] ); ?>">
+					</div>
+				<?php endif; ?>
 				<div class="hero-panel__body marketing-metric-grid">
 					<?php foreach ( $args['metrics'] as $metric ) : ?>
 						<?php
