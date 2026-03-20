@@ -35,6 +35,9 @@ get_header();
 			</div>
 			<div class="surface-panel hero-panel marketing-hero__panel">
 				<div class="hero-panel__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+				<div class="hero-panel__body marketing-hero__visual-shell">
+					<img class="marketing-hero__image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'pages/contact-support-illustration.svg' ) ); ?>" alt="<?php esc_attr_e( 'Support illustration with a map pin, contact details, and help messages.', 'booqi-classic' ); ?>">
+				</div>
 				<div class="hero-panel__body marketing-metric-grid">
 					<?php foreach ( $contact_cards as $card ) : ?>
 						<?php get_template_part( 'template-parts/components/stat-card', null, array( 'label' => $card['label'], 'value' => $card['value'], 'meta' => $card['meta'], 'card_class' => 'marketing-contact-stat' ) ); ?>
