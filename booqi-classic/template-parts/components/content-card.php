@@ -17,6 +17,10 @@ $defaults = array(
 	'after_content'  => '',
 	'aria_hidden_art'=> false,
 	'art_class'      => '',
+	'image_src'      => '',
+	'image_alt'      => '',
+	'image_class'    => '',
+	'image_loading'  => 'lazy',
 );
 
 $args = wp_parse_args( $args ?? array(), $defaults );
@@ -37,7 +41,11 @@ $inner_class  = trim( $args['inner_class'] );
 		<div class="<?php echo esc_attr( $inner_class ); ?>">
 	<?php endif; ?>
 		<?php if ( $args['art_class'] ) : ?>
-			<div class="<?php echo esc_attr( $args['art_class'] ); ?>"<?php echo $args['aria_hidden_art'] ? ' aria-hidden="true"' : ''; ?>></div>
+			<div class="<?php echo esc_attr( $args['art_class'] ); ?>"<?php echo $args['aria_hidden_art'] ? ' aria-hidden="true"' : ''; ?>>
+				<?php if ( $args['image_src'] ) : ?>
+					<img class="<?php echo esc_attr( trim( 'content-card__image ' . $args['image_class'] ) ); ?>" src="<?php echo esc_url( $args['image_src'] ); ?>" alt="<?php echo esc_attr( $args['image_alt'] ); ?>" loading="<?php echo esc_attr( $args['image_loading'] ); ?>">
+				<?php endif; ?>
+			</div>
 		<?php endif; ?>
 		<?php if ( $args['before_title'] ) : ?>
 			<?php echo wp_kses_post( $args['before_title'] ); ?>

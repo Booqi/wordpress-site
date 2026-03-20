@@ -14,6 +14,8 @@ get_template_part(
 		'title'            => __( 'Museums', 'booqi-classic' ),
 		'description'      => __( 'Improve online presence, visitor engagement, and timed-entry operations with a ticketing flow that matches modern museum needs.', 'booqi-classic' ),
 		'lead'             => __( 'The mirrored Booqi.me museum page frames the problem around engagement and digital visibility. This custom template keeps that intent while structuring it for reuse.', 'booqi-classic' ),
+		'hero_image'       => booqi_classic_get_image_uri( 'industries/museums.svg' ),
+		'hero_image_alt'   => __( 'Museum illustration with a gallery facade and exhibition framing.', 'booqi-classic' ),
 		'metrics'          => array(
 			array( 'label' => __( 'Exhibitions', 'booqi-classic' ), 'value' => __( 'Launch-ready', 'booqi-classic' ), 'meta' => __( 'Create exhibit-specific products, bundles, and campaigns more quickly.', 'booqi-classic' ), 'highlight' => true ),
 			array( 'label' => __( 'Timed entry', 'booqi-classic' ), 'value' => __( 'Balanced', 'booqi-classic' ), 'meta' => __( 'Spread attendance across the day while protecting the visitor experience.', 'booqi-classic' ) ),
