@@ -25,10 +25,10 @@
 								<?php echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( 'class' => 'site-branding__logo-image' ) ); ?>
 							</span>
 							<span class="site-branding__wordmark site-branding__wordmark--logo">
-								<span class="site-branding__title">Booqi.me</span>
+								<span class="site-branding__title"><?php echo esc_html( booqi_classic_get_brand_name() ); ?></span>
 							</span>
 						<?php else : ?>
-							<img class="site-branding__wordmark-image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' ) ); ?>" alt="<?php esc_attr_e( 'Booqi.me', 'booqi-classic' ); ?>">
+							<img class="site-branding__wordmark-image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' ) ); ?>" alt="<?php echo esc_attr( booqi_classic_get_brand_name() ); ?>">
 						<?php endif; ?>
 					</a>
 				</div>
