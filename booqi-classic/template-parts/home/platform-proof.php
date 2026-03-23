@@ -36,7 +36,7 @@ $cards = $args['cards'] ?? array();
 				?>
 				<h3><?php esc_html_e( 'Enhance every aspect of your business sales, ensuring satisfaction, loyalty, and unparalleled service. Thanks to AI of course.', 'booqi-classic' ); ?></h3>
 				<p><?php esc_html_e( 'Keep visitor demand, operational control, and customer relationships connected in one premium ticketing environment tailored to leisure venues.', 'booqi-classic' ); ?></p>
-				<a class="button" href="<?php echo esc_url( booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ) ); ?>"><?php esc_html_e( 'Request demo', 'booqi-classic' ); ?></a>
+				<a class="button" href="<?php echo esc_url( booqi_classic_get_demo_url() ); ?>"><?php esc_html_e( 'Request demo', 'booqi-classic' ); ?></a>
 			</div>
 			<div class="homepage-proof__spotlight-visual" aria-hidden="true">
 				<img class="homepage-proof__spotlight-image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-mark-pattern.svg' ) ); ?>" alt="">

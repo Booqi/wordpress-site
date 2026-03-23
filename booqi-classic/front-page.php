@@ -105,7 +105,7 @@ $industry_cards = array(
 	array(
 		'title'       => __( 'Zoo\'s', 'booqi-classic' ),
 		'description' => __( 'Handle day tickets, member access, and flexible visitor planning for animal parks.', 'booqi-classic' ),
-		'url'         => home_url( '/zoos' ),
+		'url'         => booqi_classic_get_page_url( array( 'zoos' ), '/zoos' ),
 		'accent'      => 'zoo',
 		'image_src'   => booqi_classic_get_image_uri( 'homepage/industry-zoos.svg' ),
 	),
@@ -119,7 +119,7 @@ $industry_cards = array(
 	array(
 		'title'       => __( 'Swimming Pools', 'booqi-classic' ),
 		'description' => __( 'Balance busy swim sessions, lessons, and recurring bookings from one dashboard.', 'booqi-classic' ),
-		'url'         => home_url( '/swimming-pools' ),
+		'url'         => booqi_classic_get_page_url( array( 'swimming-pools' ), '/swimming-pools' ),
 		'accent'      => 'pool',
 		'image_src'   => booqi_classic_get_image_uri( 'homepage/industry-swimming-pools.svg' ),
 	),
@@ -155,7 +155,7 @@ $pricing_tiers = array(
 		'price'        => __( 'Free for €1.000 monthly turnover', 'booqi-classic' ),
 		'highlight'    => false,
 		'button_label' => __( 'Create Free Account', 'booqi-classic' ),
-		'button_url'   => home_url( '/pricing' ),
+		'button_url'   => booqi_classic_get_create_account_url(),
 		'features'     => array(
 			__( 'Start selling online tickets right away', 'booqi-classic' ),
 			__( 'Access to essential features', 'booqi-classic' ),
@@ -169,8 +169,8 @@ $pricing_tiers = array(
 		'eyebrow'      => __( 'Get all features', 'booqi-classic' ),
 		'price'        => __( 'Request your price', 'booqi-classic' ),
 		'highlight'    => true,
-		'button_label' => __( 'Request Demo', 'booqi-classic' ),
-		'button_url'   => booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ),
+		'button_label' => __( 'Request demo', 'booqi-classic' ),
+		'button_url'   => booqi_classic_get_demo_url(),
 		'features'     => array(
 			__( 'All platform features', 'booqi-classic' ),
 			__( 'Access to essential features', 'booqi-classic' ),
