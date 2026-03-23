@@ -11,13 +11,14 @@
 			<div class="site-footer__panel">
 				<div class="site-footer__grid">
 					<div class="site-footer__brand">
-						<a class="site-footer__brand-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php esc_attr_e( 'Booqi.me homepage', 'booqi-classic' ); ?>">
-							<img class="site-footer__brand-wordmark" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' ) ); ?>" alt="<?php esc_attr_e( 'Booqi.me', 'booqi-classic' ); ?>">
+						<?php /* translators: %s: site or brand name. */ ?>
+						<a class="site-footer__brand-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( sprintf( __( '%s homepage', 'booqi-classic' ), booqi_classic_get_brand_name() ) ); ?>">
+							<img class="site-footer__brand-wordmark" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' ) ); ?>" alt="<?php echo esc_attr( booqi_classic_get_brand_name() ); ?>">
 						</a>
 					</div>
 
 					<div class="site-footer__column">
-						<p class="site-footer__heading"><?php esc_html_e( 'Booqi.me', 'booqi-classic' ); ?></p>
+						<p class="site-footer__heading"><?php echo esc_html( booqi_classic_get_brand_name() ); ?></p>
 						<?php
 						wp_nav_menu(
 							array(
@@ -59,6 +60,7 @@
 				</div>
 
 				<div class="site-footer__bottom">
+					<?php /* translators: %s: current year. */ ?>
 					<p><?php echo esc_html( sprintf( __( '©%s Copyright | All right reserved', 'booqi-classic' ), gmdate( 'Y' ) ) ); ?></p>
 					<?php
 					wp_nav_menu(
