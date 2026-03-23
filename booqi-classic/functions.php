@@ -370,6 +370,51 @@ function booqi_classic_get_blog_url() {
 }
 
 /**
+ * Gets the demo request flow URL.
+ *
+ * @return string
+ */
+function booqi_classic_get_demo_url() {
+	return booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' );
+}
+
+/**
+ * Gets the free-account signup flow URL.
+ *
+ * @return string
+ */
+function booqi_classic_get_create_account_url() {
+	return booqi_classic_get_page_url( array( 'create-account' ), '/create-account' );
+}
+
+/**
+ * Gets the features page URL.
+ *
+ * @return string
+ */
+function booqi_classic_get_features_url() {
+	return booqi_classic_get_page_url( array( 'features' ), '/features' );
+}
+
+/**
+ * Gets the industries overview URL.
+ *
+ * @return string
+ */
+function booqi_classic_get_industry_url() {
+	return booqi_classic_get_page_url( array( 'industry' ), '/industry' );
+}
+
+/**
+ * Gets the contact page URL.
+ *
+ * @return string
+ */
+function booqi_classic_get_contact_url() {
+	return booqi_classic_get_page_url( array( 'contact' ), '/contact' );
+}
+
+/**
  * Determines whether the current view matches a set of fallback menu targets.
  *
  * @param array|string $matches Match rules.
@@ -409,18 +454,13 @@ function booqi_classic_get_primary_menu_items() {
 	return array(
 		array(
 			'label' => __( 'Features', 'booqi-classic' ),
-			'url'   => booqi_classic_get_page_url( array( 'features' ), '/features' ),
+			'url'   => booqi_classic_get_features_url(),
 			'match' => array( 'features' ),
 		),
 		array(
 			'label' => __( 'Industries', 'booqi-classic' ),
-			'url'   => booqi_classic_get_page_url( array( 'industry' ), '/industry' ),
+			'url'   => booqi_classic_get_industry_url(),
 			'match' => array( 'industry', 'theme-parks', 'theme-parks-and-recreational-facilities', 'zoos', 'museums', 'musea', 'swimming-pools' ),
-		),
-		array(
-			'label' => __( 'About Us', 'booqi-classic' ),
-			'url'   => booqi_classic_get_page_url( array( 'about-us' ), '/about-us' ),
-			'match' => array( 'about-us' ),
 		),
 		array(
 			'label' => __( 'Blog', 'booqi-classic' ),
@@ -429,7 +469,7 @@ function booqi_classic_get_primary_menu_items() {
 		),
 		array(
 			'label' => __( 'Contact', 'booqi-classic' ),
-			'url'   => booqi_classic_get_page_url( array( 'contact' ), '/contact' ),
+			'url'   => booqi_classic_get_contact_url(),
 			'match' => array( 'contact' ),
 		),
 	);
@@ -444,7 +484,7 @@ function booqi_classic_get_footer_company_menu_items() {
 	return array(
 		array(
 			'label' => __( 'Features', 'booqi-classic' ),
-			'url'   => booqi_classic_get_page_url( array( 'features' ), '/features' ),
+			'url'   => booqi_classic_get_features_url(),
 			'match' => array( 'features' ),
 		),
 		array(
@@ -453,9 +493,9 @@ function booqi_classic_get_footer_company_menu_items() {
 			'match' => array( 'home' ),
 		),
 		array(
-			'label' => __( 'Industries', 'booqi-classic' ),
-			'url'   => booqi_classic_get_page_url( array( 'industry' ), '/industry' ),
-			'match' => array( 'industry', 'theme-parks', 'theme-parks-and-recreational-facilities', 'zoos', 'museums', 'musea', 'swimming-pools' ),
+			'label' => __( 'FAQ', 'booqi-classic' ),
+			'url'   => home_url( '/#faq' ),
+			'match' => array( 'home' ),
 		),
 		array(
 			'label' => __( 'About Us', 'booqi-classic' ),
@@ -532,12 +572,12 @@ function booqi_classic_get_footer_legal_menu_items() {
 function booqi_classic_get_primary_cta_actions() {
 	return array(
 		array(
-			'label' => __( 'Book a Demo', 'booqi-classic' ),
-			'url'   => booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ),
+			'label' => __( 'Request demo', 'booqi-classic' ),
+			'url'   => booqi_classic_get_demo_url(),
 		),
 		array(
-			'label' => __( 'Contact Sales', 'booqi-classic' ),
-			'url'   => booqi_classic_get_page_url( array( 'contact' ), '/contact' ),
+			'label' => __( 'Contact', 'booqi-classic' ),
+			'url'   => booqi_classic_get_contact_url(),
 			'class' => 'button--ghost',
 		),
 	);
