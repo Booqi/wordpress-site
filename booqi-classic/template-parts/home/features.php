@@ -42,7 +42,7 @@ $items = $args['items'] ?? array();
 					</li>
 				<?php endforeach; ?>
 			</ol>
-			<a class="button" href="<?php echo esc_url( home_url( '/features' ) ); ?>"><?php esc_html_e( 'See all our features', 'booqi-classic' ); ?></a>
+			<a class="button" href="<?php echo esc_url( booqi_classic_get_page_url( array( 'features' ), '/features' ) ); ?>"><?php esc_html_e( 'See all our features', 'booqi-classic' ); ?></a>
 		</div>
 	</div>
 </section>

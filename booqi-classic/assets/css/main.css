@@ -335,6 +335,7 @@ select {
 	align-items: center;
 	justify-content: center;
 	gap: var(--space-2);
+	max-width: 100%;
 	padding: 0.9rem 1.5rem;
 	border: 1px solid transparent;
 	border-radius: var(--radius-pill);
@@ -342,7 +343,10 @@ select {
 	color: #021513;
 	font-size: var(--text-sm);
 	font-weight: 600;
-	line-height: 1;
+	line-height: 1.2;
+	text-align: center;
+	white-space: normal;
+	overflow-wrap: anywhere;
 	box-shadow: 0 1px 2px rgba(16, 24, 40, 0.05), inset 0 -2px 0 rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.13);
 	transition: transform var(--transition-base), box-shadow var(--transition-base), background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base);
 }
@@ -381,6 +385,8 @@ select {
 
 .section-heading h2,
 .cta-card h2 {
+	text-wrap: balance;
+	overflow-wrap: anywhere;
 	margin-top: var(--space-4);
 	font-size: var(--text-3xl);
 	letter-spacing: -0.03em;
@@ -523,6 +529,8 @@ select {
 
 .site-nav__link {
 	display: inline-flex;
+	text-align: center;
+	overflow-wrap: anywhere;
 	align-items: center;
 	justify-content: center;
 	padding: 0.55rem 0.8rem;
@@ -554,7 +562,8 @@ select {
 }
 
 .hero-title {
-	max-width: 12ch;
+	max-width: min(100%, 12ch);
+	overflow-wrap: anywhere;
 	margin-top: var(--space-5);
 	font-size: var(--text-4xl);
 	letter-spacing: -0.04em;
@@ -703,7 +712,9 @@ select {
 }
 
 .homepage-logo-strip__title {
+	max-width: 100%;
 	margin: 0;
+	overflow-wrap: anywhere;
 	text-align: center;
 	font-size: var(--text-sm);
 	font-weight: 700;
