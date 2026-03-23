@@ -12,8 +12,7 @@
 				<div class="site-footer__grid">
 					<div class="site-footer__brand">
 						<a class="site-footer__brand-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php esc_attr_e( 'Booqi.me homepage', 'booqi-classic' ); ?>">
-							<span class="site-footer__brand-mark" aria-hidden="true"></span>
-							<span class="site-footer__brand-name">Booqi.me</span>
+							<img class="site-footer__brand-wordmark" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' ) ); ?>" alt="<?php esc_attr_e( 'Booqi.me', 'booqi-classic' ); ?>">
 						</a>
 					</div>
 

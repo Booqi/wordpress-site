@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 160" role="img" aria-labelledby="title desc">
+<title id="title">Booqi decorative pattern</title><desc id="desc">Decorative grid of glowing Booqi ring marks.</desc>
+<defs>
+<radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#5cf0ca" stop-opacity="0.4"/><stop offset="100%" stop-color="#5cf0ca" stop-opacity="0"/></radialGradient>
+<g id="mark"><circle cx="0" cy="0" r="20" fill="none" stroke="#5cf0ca" stroke-opacity="0.45" stroke-width="6"/><circle cx="0" cy="0" r="5" fill="#5cf0ca" fill-opacity="0.8"/></g>
+</defs>
+<rect width="480" height="160" rx="32" fill="#071017"/>
+<g transform="translate(60 40)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(150 40)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(240 40)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(330 40)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(60 80)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(150 80)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(240 80)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(330 80)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(60 120)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(150 120)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(240 120)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g><g transform="translate(330 120)"><circle r="34" fill="url(#glow)"/><use href="#mark"/></g></svg>

@@ -40,6 +40,9 @@ get_header();
 			</div>
 			<div class="surface-panel hero-panel marketing-hero__panel">
 				<div class="hero-panel__chrome" aria-hidden="true"><span></span><span></span><span></span></div>
+				<div class="hero-panel__body marketing-hero__visual-shell">
+					<img class="marketing-hero__image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'pages/about-team-illustration.svg' ) ); ?>" alt="<?php esc_attr_e( 'Abstract illustration of the Booqi team collaborating around a product dashboard.', 'booqi-classic' ); ?>">
+				</div>
 				<div class="hero-panel__body marketing-capability-stack">
 					<section class="stat-card marketing-capability-card stat-card--highlight">
 						<p class="stat-card__label"><?php esc_html_e( 'Our Story', 'booqi-classic' ); ?></p>

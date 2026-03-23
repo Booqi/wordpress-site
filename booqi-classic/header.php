@@ -20,16 +20,16 @@
 			<div class="site-header__inner">
 				<div class="site-branding">
 					<a class="site-branding__link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-						<span class="site-branding__mark" aria-hidden="true">
-							<?php if ( has_custom_logo() ) : ?>
+						<?php if ( has_custom_logo() ) : ?>
+							<span class="site-branding__mark" aria-hidden="true">
 								<?php echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( 'class' => 'site-branding__logo-image' ) ); ?>
-							<?php else : ?>
-								<span class="site-branding__glyph"></span>
-							<?php endif; ?>
-						</span>
-						<span class="site-branding__wordmark site-branding__wordmark--logo">
-							<span class="site-branding__title">Booqi.me</span>
-						</span>
+							</span>
+							<span class="site-branding__wordmark site-branding__wordmark--logo">
+								<span class="site-branding__title">Booqi.me</span>
+							</span>
+						<?php else : ?>
+							<img class="site-branding__wordmark-image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' ) ); ?>" alt="<?php esc_attr_e( 'Booqi.me', 'booqi-classic' ); ?>">
+						<?php endif; ?>
 					</a>
 				</div>
 
