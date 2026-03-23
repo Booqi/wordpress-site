@@ -4,6 +4,8 @@
  *
  * @package BooqiClassic
  */
+
+$brand_assets = booqi_classic_get_brand_assets();
 ?><!doctype html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -19,16 +21,17 @@
 		<div class="site-container">
 			<div class="site-header__inner">
 				<div class="site-branding">
-					<a class="site-branding__link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>">
-						<?php if ( has_custom_logo() ) : ?>
+					<a class="site-branding__link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( $brand_assets['brand_name'] ); ?>">
+						<?php if ( $brand_assets['logo_markup'] ) : ?>
 							<span class="site-branding__mark" aria-hidden="true">
-								<?php echo wp_get_attachment_image( get_theme_mod( 'custom_logo' ), 'full', false, array( 'class' => 'site-branding__logo-image' ) ); ?>
+								<?php echo $brand_assets['logo_markup']; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 							</span>
 							<span class="site-branding__wordmark site-branding__wordmark--logo">
-								<span class="site-branding__title"><?php echo esc_html( booqi_classic_get_brand_name() ); ?></span>
+								<span class="site-branding__title"><?php echo esc_html( $brand_assets['brand_name'] ); ?></span>
 							</span>
 						<?php else : ?>
-							<img class="site-branding__wordmark-image" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' ) ); ?>" alt="<?php echo esc_attr( booqi_classic_get_brand_name() ); ?>">
+							<img class="site-branding__wordmark-image" src="<?php echo esc_url( $brand_assets['logo_src'] ); ?>" alt="<?php echo esc_attr( $brand_assets['brand_name'] ); ?>">
+							<span class="screen-reader-text"><?php echo esc_html( $brand_assets['brand_name'] ); ?></span>
 						<?php endif; ?>
 					</a>
 				</div>

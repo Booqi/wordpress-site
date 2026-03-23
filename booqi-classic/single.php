@@ -7,16 +7,29 @@
 
 get_header();
 ?>
-<section class="page-section page-section--hero marketing-hero marketing-hero--blog">
+<section class="page-section page-section--hero marketing-hero marketing-hero--blog" aria-labelledby="single-post-title">
 	<div class="site-container site-reading-width">
 		<?php while ( have_posts() ) : the_post(); ?>
 			<article id="post-<?php the_ID(); ?>" <?php post_class( 'single-post-article' ); ?>>
 				<?php get_template_part( 'template-parts/components/badge', null, array( 'text' => __( 'Article', 'booqi-classic' ), 'accent' => true ) ); ?>
-				<h1 class="hero-title marketing-hero__title marketing-hero__title--compact"><?php the_title(); ?></h1>
+				<h1 id="single-post-title" class="hero-title marketing-hero__title marketing-hero__title--compact"><?php the_title(); ?></h1>
 				<p class="post-meta post-meta--single"><?php echo esc_html( get_the_date() ); ?></p>
+				<?php if ( has_excerpt() ) : ?>
+					<p class="hero-text marketing-hero__text"><?php echo esc_html( get_the_excerpt() ); ?></p>
+				<?php endif; ?>
+
 				<div class="content-card page-card single-post-card">
+					<?php if ( has_post_thumbnail() ) : ?>
+						<div class="single-post-card__media">
+							<?php the_post_thumbnail( 'large', array( 'class' => 'single-post-card__image' ) ); ?>
+						</div>
+					<?php endif; ?>
 					<div class="page-card__content entry-content single-post-content">
-						<?php the_content(); ?>
+						<?php if ( trim( get_the_content() ) ) : ?>
+							<?php the_content(); ?>
+						<?php else : ?>
+							<p><?php esc_html_e( 'Add content to this post in WordPress to replace this fallback article message.', 'booqi-classic' ); ?></p>
+						<?php endif; ?>
 					</div>
 				</div>
 			</article>
@@ -36,18 +49,12 @@ $related_posts = get_posts(
 
 if ( ! empty( $related_posts ) ) :
 	?>
-	<section class="page-section page-section--light blog-archive-section">
+	<section class="page-section page-section--light blog-archive-section" aria-labelledby="related-posts-title">
 		<div class="site-container">
-			<?php get_template_part( 'template-parts/components/section-heading', null, array( 'badge' => __( 'More from the blog', 'booqi-classic' ), 'badge_accent' => true, 'title' => __( 'Keep reading', 'booqi-classic' ) ) ); ?>
+			<?php get_template_part( 'template-parts/components/section-heading', null, array( 'badge' => __( 'More from the blog', 'booqi-classic' ), 'badge_accent' => true, 'title' => __( 'Keep reading', 'booqi-classic' ), 'heading_id' => 'related-posts-title' ) ); ?>
 			<div class="blog-archive-grid blog-archive-grid--compact">
 				<?php foreach ( $related_posts as $post ) : setup_postdata( $post ); ?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-card post-card' ); ?>>
-						<a class="post-card__inner" href="<?php the_permalink(); ?>">
-							<p class="post-meta"><?php echo esc_html( get_the_date() ); ?></p>
-							<h2 class="post-card__title"><?php the_title(); ?></h2>
-							<p class="post-card__excerpt"><?php echo esc_html( get_the_excerpt() ); ?></p>
-						</a>
-					</article>
+					<?php get_template_part( 'template-parts/components/post-card', null, array( 'show_link' => false ) ); ?>
 				<?php endforeach; wp_reset_postdata(); ?>
 			</div>
 		</div>

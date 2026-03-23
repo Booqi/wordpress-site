@@ -7,7 +7,7 @@
 
 $cards = $args['cards'] ?? array();
 ?>
-<section class="page-section page-section--light homepage-industries">
+<section id="stories" class="page-section page-section--light homepage-industries" aria-labelledby="homepage-industries-title">
 	<div class="site-container stack-lg">
 		<?php
 		get_template_part(
@@ -16,7 +16,8 @@ $cards = $args['cards'] ?? array();
 			array(
 				'container_class' => 'site-reading-width',
 				'badge'           => __( 'Industries', 'booqi-classic' ),
-				'title'           => __( 'The right solution for your business needs', 'booqi-classic' ),
+				'heading_id'      => 'homepage-industries-title',
+					'title'           => __( 'The right solution for your business needs', 'booqi-classic' ),
 			)
 		);
 		?>

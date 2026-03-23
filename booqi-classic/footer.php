@@ -4,6 +4,8 @@
  *
  * @package BooqiClassic
  */
+
+$brand_assets = booqi_classic_get_brand_assets();
 ?>
 	</main>
 	<footer class="site-footer">
@@ -12,13 +14,13 @@
 				<div class="site-footer__grid">
 					<div class="site-footer__brand">
 						<?php /* translators: %s: site or brand name. */ ?>
-						<a class="site-footer__brand-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( sprintf( __( '%s homepage', 'booqi-classic' ), booqi_classic_get_brand_name() ) ); ?>">
-							<img class="site-footer__brand-wordmark" src="<?php echo esc_url( booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' ) ); ?>" alt="<?php echo esc_attr( booqi_classic_get_brand_name() ); ?>">
+						<a class="site-footer__brand-link" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home" aria-label="<?php echo esc_attr( sprintf( __( '%s homepage', 'booqi-classic' ), $brand_assets['brand_name'] ) ); ?>">
+							<img class="site-footer__brand-wordmark" src="<?php echo esc_url( $brand_assets['logo_src'] ); ?>" alt="<?php echo esc_attr( $brand_assets['brand_name'] ); ?>">
 						</a>
 					</div>
 
 					<div class="site-footer__column">
-						<p class="site-footer__heading"><?php echo esc_html( booqi_classic_get_brand_name() ); ?></p>
+						<p class="site-footer__heading"><?php echo esc_html( $brand_assets['brand_name'] ); ?></p>
 						<?php
 						wp_nav_menu(
 							array(

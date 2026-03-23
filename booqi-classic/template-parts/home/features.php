@@ -7,7 +7,7 @@
 
 $items = $args['items'] ?? array();
 ?>
-<section class="page-section page-section--light homepage-features-spotlight">
+<section id="features" class="page-section page-section--light homepage-features-spotlight" aria-labelledby="homepage-features-title">
 	<div class="site-container homepage-features-spotlight__grid">
 		<div class="homepage-features-spotlight__media content-card">
 			<div class="homepage-features-spotlight__canvas">
@@ -29,6 +29,7 @@ $items = $args['items'] ?? array();
 				null,
 				array(
 					'badge'       => __( 'Features', 'booqi-classic' ),
+					'heading_id'  => 'homepage-features-title',
 					'title'       => __( 'We have got what it takes!', 'booqi-classic' ),
 					'description' => __( 'We provide an easy platform for your visitors. While giving you the possibility to manage and control with just a mouse click', 'booqi-classic' ),
 				)
