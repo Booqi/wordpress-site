@@ -9,7 +9,7 @@ $logos = $args['logos'] ?? array();
 ?>
 <section class="page-section homepage-logo-strip">
 	<div class="site-container">
-		<p class="homepage-logo-strip__title"><?php esc_html_e( 'Used by the world’s most incredible teams:', 'booqi-classic' ); ?></p>
+		<h2 class="homepage-logo-strip__title"><?php esc_html_e( 'Used by the world’s most incredible teams:', 'booqi-classic' ); ?></h2>
 		<ul class="homepage-logo-strip__list" aria-label="<?php esc_attr_e( 'Selected Booqi customers', 'booqi-classic' ); ?>">
 			<?php foreach ( $logos as $logo ) : ?>
 				<li class="homepage-logo-strip__item">

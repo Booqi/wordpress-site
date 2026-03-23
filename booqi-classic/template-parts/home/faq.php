@@ -7,7 +7,7 @@
 
 $items = $args['items'] ?? array();
 ?>
-<section class="page-section homepage-faq">
+<section id="faq" class="page-section homepage-faq" aria-labelledby="homepage-faq-title">
 	<div class="site-container stack-lg">
 		<?php
 		get_template_part(
@@ -18,7 +18,8 @@ $items = $args['items'] ?? array();
 				'alignment'       => 'centered',
 				'badge'           => __( 'FAQ', 'booqi-classic' ),
 				'badge_accent'    => true,
-				'title'           => __( 'We have all the answers', 'booqi-classic' ),
+				'heading_id'      => 'homepage-faq-title',
+					'title'           => __( 'We have all the answers', 'booqi-classic' ),
 			)
 		);
 		?>

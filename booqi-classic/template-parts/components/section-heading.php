@@ -8,6 +8,7 @@
 $defaults = array(
 	'container_class' => '',
 	'heading_class'   => '',
+	'heading_id'      => '',
 	'badge'           => '',
 	'badge_accent'    => false,
 	'title'           => '',
@@ -34,7 +35,7 @@ $container_class = trim( 'section-heading ' . $args['container_class'] . ( 'cent
 		)
 	);
 	?>
-	<h2<?php echo $args['heading_class'] ? " class=\"" . esc_attr( $args['heading_class'] ) . "\"" : ""; ?>><?php echo esc_html( $args['title'] ); ?></h2>
+	<h2<?php echo $args['heading_id'] ? ' id="' . esc_attr( $args['heading_id'] ) . '"' : ''; ?><?php echo $args['heading_class'] ? ' class="' . esc_attr( $args['heading_class'] ) . '"' : ''; ?>><?php echo esc_html( $args['title'] ); ?></h2>
 	<?php if ( $args['description'] ) : ?>
 		<p><?php echo esc_html( $args['description'] ); ?></p>
 	<?php endif; ?>

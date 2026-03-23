@@ -7,7 +7,7 @@
 
 $tiers = $args['tiers'] ?? array();
 ?>
-<section class="page-section page-section--light homepage-pricing">
+<section id="pricing" class="page-section page-section--light homepage-pricing" aria-labelledby="homepage-pricing-title">
 	<div class="site-container stack-lg">
 		<?php
 		get_template_part(
@@ -17,7 +17,8 @@ $tiers = $args['tiers'] ?? array();
 				'container_class' => 'site-reading-width',
 				'alignment'       => 'centered',
 				'badge'           => __( 'Pricing', 'booqi-classic' ),
-				'title'           => __( 'What we offer', 'booqi-classic' ),
+				'heading_id'      => 'homepage-pricing-title',
+					'title'           => __( 'What we offer', 'booqi-classic' ),
 				'description'     => __( 'Sell your tickets online and offline!', 'booqi-classic' ),
 			)
 		);

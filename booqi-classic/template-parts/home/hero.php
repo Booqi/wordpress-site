@@ -7,7 +7,7 @@
 
 $stats = $args['stats'] ?? array();
 ?>
-<section class="hero-section page-section page-section--hero homepage-hero">
+<section id="hero" class="hero-section page-section page-section--hero homepage-hero" aria-labelledby="homepage-hero-title">
 	<div class="site-container hero-grid homepage-hero__grid">
 		<div class="hero-copy homepage-hero__copy">
 			<?php
@@ -20,7 +20,7 @@ $stats = $args['stats'] ?? array();
 				)
 			);
 			?>
-			<h1 class="hero-title"><?php esc_html_e( 'Enhance your ticketing experience', 'booqi-classic' ); ?></h1>
+			<h1 id="homepage-hero-title" class="hero-title"><?php esc_html_e( 'Enhance your ticketing experience', 'booqi-classic' ); ?></h1>
 			<p class="hero-text"><?php esc_html_e( 'Booqi.me offers the most feature rich ticketing platform to organisations in the leisure industry. Find out why numerous locations choose us to arrange their entrance for them.', 'booqi-classic' ); ?></p>
 			<div class="hero-actions">
 				<a class="button" href="<?php echo esc_url( booqi_classic_get_demo_url() ); ?>"><?php esc_html_e( 'Request demo', 'booqi-classic' ); ?></a>

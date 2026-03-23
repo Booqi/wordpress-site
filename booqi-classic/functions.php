@@ -9,6 +9,10 @@ if ( ! defined( 'BOOQI_CLASSIC_VERSION' ) ) {
 	define( 'BOOQI_CLASSIC_VERSION', '0.1.0' );
 }
 
+if ( ! defined( 'BOOQI_CLASSIC_SETUP_OPTION' ) ) {
+	define( 'BOOQI_CLASSIC_SETUP_OPTION', 'booqi_classic_production_ready_setup_v1' );
+}
+
 /**
  * Registers theme supports and navigation menus.
  *
@@ -84,6 +88,41 @@ function booqi_classic_get_brand_name() {
 	}
 
 	return __( 'Booqi.me', 'booqi-classic' );
+}
+
+/**
+ * Returns a custom-logo aware image array for theme branding.
+ *
+ * @return array<string, string>
+ */
+function booqi_classic_get_brand_assets() {
+	$brand_name  = booqi_classic_get_brand_name();
+	$logo_markup = '';
+	$logo_src    = '';
+
+	if ( has_custom_logo() ) {
+		$custom_logo_id = (int) get_theme_mod( 'custom_logo' );
+		$logo_markup    = wp_get_attachment_image(
+			$custom_logo_id,
+			'full',
+			false,
+			array(
+				'class' => 'site-branding__logo-image',
+				'alt'   => $brand_name,
+			)
+		);
+		$logo_src       = (string) wp_get_attachment_image_url( $custom_logo_id, 'full' );
+	}
+
+	if ( '' === $logo_src ) {
+		$logo_src = booqi_classic_get_image_uri( 'brand/booqi-wordmark.svg' );
+	}
+
+	return array(
+		'brand_name'  => $brand_name,
+		'logo_markup' => $logo_markup,
+		'logo_src'    => $logo_src,
+	);
 }
 
 /**
@@ -241,7 +280,7 @@ function booqi_classic_get_homepage_content() {
 				'price'        => __( 'Free for €1.000 monthly turnover', 'booqi-classic' ),
 				'highlight'    => false,
 				'button_label' => __( 'Create Free Account', 'booqi-classic' ),
-				'button_url'   => booqi_classic_get_page_url( array( 'pricing' ), '/pricing' ),
+				'button_url'   => booqi_classic_get_create_account_url(),
 				'features'     => array(
 					__( 'Start selling online tickets right away', 'booqi-classic' ),
 					__( 'Access to essential features', 'booqi-classic' ),
@@ -256,7 +295,7 @@ function booqi_classic_get_homepage_content() {
 				'price'        => __( 'Request your price', 'booqi-classic' ),
 				'highlight'    => true,
 				'button_label' => __( 'Request Demo', 'booqi-classic' ),
-				'button_url'   => booqi_classic_get_page_url( array( 'book-demo' ), '/book-demo' ),
+				'button_url'   => booqi_classic_get_demo_url(),
 				'features'     => array(
 					__( 'All platform features', 'booqi-classic' ),
 					__( 'Access to essential features', 'booqi-classic' ),
@@ -295,6 +334,256 @@ function booqi_classic_get_homepage_content() {
 		),
 	);
 }
+
+/**
+ * Returns the canonical production-ready page configuration.
+ *
+ * @return array<string, array<string, string>>
+ */
+function booqi_classic_get_required_pages() {
+	return array(
+		'homepage' => array(
+			'title'    => __( 'Home', 'booqi-classic' ),
+			'slug'     => 'home',
+			'template' => '',
+		),
+		'features' => array(
+			'title'    => __( 'Features', 'booqi-classic' ),
+			'slug'     => 'features',
+			'template' => 'page-features.php',
+		),
+		'industry' => array(
+			'title'    => __( 'Industries', 'booqi-classic' ),
+			'slug'     => 'industry',
+			'template' => 'page-industry.php',
+		),
+		'theme_parks' => array(
+			'title'    => __( 'Theme Parks', 'booqi-classic' ),
+			'slug'     => 'theme-parks',
+			'template' => 'page-theme-parks.php',
+		),
+		'zoos' => array(
+			'title'    => __( 'Zoos', 'booqi-classic' ),
+			'slug'     => 'zoos',
+			'template' => 'page-zoos.php',
+		),
+		'museums' => array(
+			'title'    => __( 'Museums', 'booqi-classic' ),
+			'slug'     => 'museums',
+			'template' => 'page-museums.php',
+		),
+		'swimming_pools' => array(
+			'title'    => __( 'Swimming Pools', 'booqi-classic' ),
+			'slug'     => 'swimming-pools',
+			'template' => 'page-swimming-pools.php',
+		),
+		'about_us' => array(
+			'title'    => __( 'About Us', 'booqi-classic' ),
+			'slug'     => 'about-us',
+			'template' => 'page-about-us.php',
+		),
+		'contact' => array(
+			'title'    => __( 'Contact', 'booqi-classic' ),
+			'slug'     => 'contact',
+			'template' => 'page-contact.php',
+		),
+		'blog' => array(
+			'title'    => __( 'Blog', 'booqi-classic' ),
+			'slug'     => 'blog',
+			'template' => 'page-blog.php',
+		),
+		'book_demo' => array(
+			'title'    => __( 'Book Demo', 'booqi-classic' ),
+			'slug'     => 'book-demo',
+			'template' => '',
+		),
+		'create_account' => array(
+			'title'    => __( 'Create Account', 'booqi-classic' ),
+			'slug'     => 'create-account',
+			'template' => '',
+		),
+		'privacy_cookie_policy' => array(
+			'title'    => __( 'Privacy & Cookie Policy', 'booqi-classic' ),
+			'slug'     => 'privacy-cookie-policy',
+			'template' => '',
+		),
+		'terms' => array(
+			'title'    => __( 'General Terms & Conditions', 'booqi-classic' ),
+			'slug'     => 'terms-and-conditions',
+			'template' => 'page-terms-and-conditions.php',
+		),
+	);
+}
+
+/**
+ * Creates or updates the required WordPress pages for the theme.
+ *
+ * @return array<string, int>
+ */
+function booqi_classic_ensure_required_pages() {
+	$page_ids = array();
+
+	foreach ( booqi_classic_get_required_pages() as $key => $page_config ) {
+		$page = get_page_by_path( $page_config['slug'] );
+
+		if ( ! $page instanceof WP_Post ) {
+			$page_id = wp_insert_post(
+				array(
+					'post_title'   => $page_config['title'],
+					'post_name'    => $page_config['slug'],
+					'post_status'  => 'publish',
+					'post_type'    => 'page',
+					'post_content' => '',
+				),
+				true
+			);
+
+			if ( is_wp_error( $page_id ) || ! $page_id ) {
+				continue;
+			}
+		} else {
+			$page_id = (int) $page->ID;
+		}
+
+		if ( ! empty( $page_config['template'] ) ) {
+			update_post_meta( $page_id, '_wp_page_template', $page_config['template'] );
+		}
+
+		$page_ids[ $key ] = (int) $page_id;
+	}
+
+	return $page_ids;
+}
+
+/**
+ * Ensures homepage and posts page options point to the generated pages.
+ *
+ * @param array<string, int> $page_ids Required page IDs.
+ * @return void
+ */
+function booqi_classic_assign_static_front_page( $page_ids ) {
+	$front_page_id = isset( $page_ids['homepage'] ) ? (int) $page_ids['homepage'] : 0;
+	$posts_page_id = isset( $page_ids['blog'] ) ? (int) $page_ids['blog'] : 0;
+
+	if ( $front_page_id > 0 ) {
+		update_option( 'show_on_front', 'page' );
+		update_option( 'page_on_front', $front_page_id );
+	}
+
+	if ( $posts_page_id > 0 ) {
+		update_option( 'page_for_posts', $posts_page_id );
+	}
+}
+
+/**
+ * Creates a navigation menu if needed and populates it from a fallback item list.
+ *
+ * @param string $menu_name Menu display name.
+ * @param array  $items     Menu items.
+ * @return int
+ */
+function booqi_classic_ensure_menu( $menu_name, $items ) {
+	$menu = wp_get_nav_menu_object( $menu_name );
+
+	if ( ! $menu ) {
+		$menu_id = wp_create_nav_menu( $menu_name );
+	} else {
+		$menu_id = (int) $menu->term_id;
+	}
+
+	if ( ! $menu_id ) {
+		return 0;
+	}
+
+	$existing_items = wp_get_nav_menu_items( $menu_id );
+
+	if ( empty( $existing_items ) ) {
+		foreach ( $items as $item ) {
+			wp_update_nav_menu_item(
+				$menu_id,
+				0,
+				array(
+					'menu-item-title'  => $item['label'],
+					'menu-item-url'    => $item['url'],
+					'menu-item-status' => 'publish',
+					'menu-item-target' => empty( $item['target'] ) ? '' : $item['target'],
+				)
+			);
+		}
+	}
+
+	return $menu_id;
+}
+
+/**
+ * Creates and assigns the expected theme menus.
+ *
+ * @return void
+ */
+function booqi_classic_assign_theme_menus() {
+	$locations = get_theme_mod( 'nav_menu_locations', array() );
+
+	$menu_map = array(
+		'primary'        => array(
+			'name'  => __( 'Primary Menu', 'booqi-classic' ),
+			'items' => booqi_classic_get_primary_menu_items(),
+		),
+		'footer_company' => array(
+			'name'  => __( 'Footer Company Menu', 'booqi-classic' ),
+			'items' => booqi_classic_get_footer_company_menu_items(),
+		),
+		'footer_useful'  => array(
+			'name'  => __( 'Footer Useful Links Menu', 'booqi-classic' ),
+			'items' => booqi_classic_get_footer_useful_menu_items(),
+		),
+		'footer_legal'   => array(
+			'name'  => __( 'Footer Legal Menu', 'booqi-classic' ),
+			'items' => booqi_classic_get_footer_legal_menu_items(),
+		),
+	);
+
+	foreach ( $menu_map as $location => $menu_config ) {
+		if ( ! empty( $locations[ $location ] ) ) {
+			continue;
+		}
+
+		$menu_id = booqi_classic_ensure_menu( $menu_config['name'], $menu_config['items'] );
+
+		if ( $menu_id ) {
+			$locations[ $location ] = $menu_id;
+		}
+	}
+
+	set_theme_mod( 'nav_menu_locations', $locations );
+}
+
+/**
+ * Runs the production-readiness bootstrap once per site.
+ *
+ * @return void
+ */
+function booqi_classic_run_production_ready_setup() {
+	if ( ! is_admin() || ! current_user_can( 'manage_options' ) ) {
+		return;
+	}
+
+	if ( get_option( BOOQI_CLASSIC_SETUP_OPTION ) ) {
+		return;
+	}
+
+	$page_ids = booqi_classic_ensure_required_pages();
+
+	if ( empty( $page_ids ) ) {
+		return;
+	}
+
+	booqi_classic_assign_static_front_page( $page_ids );
+	booqi_classic_assign_theme_menus();
+
+	update_option( BOOQI_CLASSIC_SETUP_OPTION, 1 );
+}
+add_action( 'admin_init', 'booqi_classic_run_production_ready_setup' );
+add_action( 'after_switch_theme', 'booqi_classic_run_production_ready_setup' );
 
 /**
  * Filters menu link attributes for header and footer presentation.

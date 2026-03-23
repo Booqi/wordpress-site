@@ -15,31 +15,24 @@ $recent_posts = new WP_Query(
 
 get_header();
 ?>
-<section class="page-section page-section--hero marketing-hero marketing-hero--blog">
+<section class="page-section page-section--hero marketing-hero marketing-hero--blog" aria-labelledby="blog-landing-title">
 	<div class="site-container">
 		<?php get_template_part( 'template-parts/components/badge', null, array( 'text' => __( 'Blog', 'booqi-classic' ), 'accent' => true ) ); ?>
-		<h1 class="hero-title marketing-hero__title"><?php esc_html_e( 'Insights for leisure ticketing and venue operations', 'booqi-classic' ); ?></h1>
+		<h1 id="blog-landing-title" class="hero-title marketing-hero__title"><?php esc_html_e( 'Insights for leisure ticketing and venue operations', 'booqi-classic' ); ?></h1>
 		<p class="hero-text marketing-hero__text"><?php esc_html_e( 'Use this page as the primary marketing-facing blog archive landing. It highlights recent posts in a cleaner editorial layout while still supporting WordPress archives and single posts separately.', 'booqi-classic' ); ?></p>
 	</div>
 </section>
 
-<section class="page-section page-section--light marketing-section">
+<section class="page-section page-section--light marketing-section" aria-label="<?php esc_attr_e( 'Recent blog posts', 'booqi-classic' ); ?>">
 	<div class="site-container">
 		<?php if ( $recent_posts->have_posts() ) : ?>
 			<div class="blog-archive-grid">
 				<?php while ( $recent_posts->have_posts() ) : $recent_posts->the_post(); ?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class( 'content-card post-card' ); ?>>
-						<a class="post-card__inner" href="<?php the_permalink(); ?>">
-							<p class="post-meta"><?php echo esc_html( get_the_date() ); ?></p>
-							<h2 class="post-card__title"><?php the_title(); ?></h2>
-							<p class="post-card__excerpt"><?php echo esc_html( get_the_excerpt() ); ?></p>
-							<span class="post-card__link"><?php esc_html_e( 'Read article', 'booqi-classic' ); ?></span>
-						</a>
-					</article>
+					<?php get_template_part( 'template-parts/components/post-card' ); ?>
 				<?php endwhile; ?>
 			</div>
 		<?php else : ?>
-			<div class="content-card page-card">
+			<div class="content-card page-card page-card--empty">
 				<header class="page-card__header">
 					<p class="section-tag"><?php esc_html_e( 'No articles yet', 'booqi-classic' ); ?></p>
 					<h2 class="page-card__title"><?php esc_html_e( 'Publish your first Booqi.me story', 'booqi-classic' ); ?></h2>

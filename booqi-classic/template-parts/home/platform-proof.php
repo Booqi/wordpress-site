@@ -7,7 +7,7 @@
 
 $cards = $args['cards'] ?? array();
 ?>
-<section class="page-section homepage-proof">
+<section id="benefits" class="page-section homepage-proof" aria-labelledby="homepage-proof-title">
 	<div class="site-container stack-lg">
 		<?php
 		get_template_part(
@@ -18,7 +18,8 @@ $cards = $args['cards'] ?? array();
 				'alignment'       => 'centered',
 				'badge'           => __( 'Why Booqi', 'booqi-classic' ),
 				'badge_accent'    => true,
-				'title'           => __( 'Focus on your sales and managing your customers and let us do the rest:', 'booqi-classic' ),
+				'heading_id'      => 'homepage-proof-title',
+					'title'           => __( 'Focus on your sales and managing your customers and let us do the rest:', 'booqi-classic' ),
 			)
 		);
 		?>
