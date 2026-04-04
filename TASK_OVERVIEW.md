@@ -52,19 +52,19 @@ Use this as a step-by-step execution checklist. Complete top to bottom.
 - [x] Add CPT labels and admin menu icons.
 
 ## 4) Template implementation
-- [ ] Build/convert core templates:
-  - [ ] Home
-  - [ ] About Us
-  - [ ] Contact
-  - [ ] Features
-  - [ ] Industry Detail
-- [ ] Build collection templates:
-  - [ ] Blog archive
-  - [ ] Blog single
-  - [ ] Case Study archive
-  - [ ] Case Study single
-- [ ] Reuse blog-overview layout pattern for both archive pages.
-- [ ] Add fallback/empty-state templates for archives.
+- [x] Build/convert core templates:
+  - [x] Home
+  - [x] About Us
+  - [x] Contact
+  - [x] Features
+  - [x] Industry Detail
+- [x] Build collection templates:
+  - [x] Blog archive
+  - [x] Blog single
+  - [x] Case Study archive
+  - [x] Case Study single
+- [x] Reuse blog-overview layout pattern for both archive pages.
+- [x] Add fallback/empty-state templates for archives.
 
 ## 5) Reusable blocks and editor experience
 - [ ] Define allowed core block set.

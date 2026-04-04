@@ -134,6 +134,44 @@ function wp_site2_register_content_models() {
 		)
 	);
 
+	$industry_labels = array(
+		'name'                  => __( 'Industries', 'wp-site2' ),
+		'singular_name'         => __( 'Industry', 'wp-site2' ),
+		'menu_name'             => __( 'Industries', 'wp-site2' ),
+		'add_new'               => __( 'Add New', 'wp-site2' ),
+		'add_new_item'          => __( 'Add New Industry', 'wp-site2' ),
+		'edit_item'             => __( 'Edit Industry', 'wp-site2' ),
+		'new_item'              => __( 'New Industry', 'wp-site2' ),
+		'view_item'             => __( 'View Industry', 'wp-site2' ),
+		'view_items'            => __( 'View Industries', 'wp-site2' ),
+		'search_items'          => __( 'Search Industries', 'wp-site2' ),
+		'not_found'             => __( 'No industries found.', 'wp-site2' ),
+		'not_found_in_trash'    => __( 'No industries found in Trash.', 'wp-site2' ),
+		'all_items'             => __( 'All Industries', 'wp-site2' ),
+		'archives'              => __( 'Industry Archives', 'wp-site2' ),
+		'attributes'            => __( 'Industry Attributes', 'wp-site2' ),
+		'insert_into_item'      => __( 'Insert into industry', 'wp-site2' ),
+		'uploaded_to_this_item' => __( 'Uploaded to this industry', 'wp-site2' ),
+	);
+
+	register_post_type(
+		'industry',
+		array(
+			'labels'             => $industry_labels,
+			'public'             => true,
+			'show_in_rest'       => true,
+			'menu_icon'          => 'dashicons-building',
+			'has_archive'        => false,
+			'rewrite'            => array(
+				'slug'       => 'industry',
+				'with_front' => false,
+			),
+			'supports'           => array( 'title', 'editor', 'excerpt', 'thumbnail', 'author', 'revisions' ),
+			'publicly_queryable' => true,
+			'menu_position'      => 7,
+		)
+	);
+
 	register_taxonomy(
 		'blog_category',
 		'blog',
